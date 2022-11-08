@@ -1,0 +1,69 @@
+base: '/'
+baseVariants:
+  -
+    base: 'http://crmbaza.ddev.site/'
+    condition: 'getenv("HOST_ENV") == "localdev"'
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=11'
+languages:
+  -
+    title: France
+    enabled: true
+    base: /
+    typo3Language: fr
+    locale: fr_FR.UTF-8
+    iso-639-1: fr
+    navigationTitle: ''
+    hreflang: ''
+    direction: ''
+    flag: ru
+    languageId: 0
+rootPageId: 1
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: ''
+    map:
+      .pdf: 133799
+  NewsPlugin:
+    type: Extbase
+    extension: News
+    plugin: Pi1
+    routes:
+      -
+        routePath: '/detail/{news_title}'
+        _controller: 'News::detail'
+        _arguments:
+          news_title: news
+      -
+        routePath: '/list/{page}'
+        _controller: 'News::list'
+        _arguments:
+          page: '@widget_0/currentPage'
+    defaultController: 'News::list'
+    defaults:
+      page: '0'
+    requirements:
+      page: \d+
+    aspects:
+      news_title:
+        type: PersistedAliasMapper
+        tableName: tx_news_domain_model_news
+        routeFieldName: path_segment
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '100'
+routes:
+  -
+    route: sitemap.xml
+    type: uri
+    source: 't3://page?uid=1&type=1533906435'
+  -
+    route: robots.txt
+    type: staticText
+    content: "User-Agent: *\r\nAllow: /\r\nAllow: *.css\r\nAllow: *.js\r\nAllow: /typo3/sysext/frontend/Resources/Public/*\r\nDisallow: /fileadmin/\r\nDisallow: /typo3/\r\nDisallow: /typo3conf/\r\nDisallow: /typo3temp/\r\nDisallow: /*?id=*\r\nDisallow: /*&type=98\r\nSitemap: http://piment-config.site/sitemap.xml\r\nHost: piment-config.site\r\n"
+websiteTitle: ''
