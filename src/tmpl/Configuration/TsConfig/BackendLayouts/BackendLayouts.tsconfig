@@ -1,0 +1,55 @@
+mod.web_layout.BackendLayouts {
+
+    1 {
+        title = LLL:EXT:tmpl/Resources/Private/Language/locallang_db.xlf:page.home_page
+        icon = tmpl-backend-layout
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 1
+
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = Main Content
+                                colPos = 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    2 {
+        title = LLL:EXT:tmpl/Resources/Private/Language/locallang_db.xlf:page.main_page
+        icon = tmpl-backend-layout
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 2
+
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = Top Content
+                                colPos = 1
+                            }
+                        }
+                    }
+                    2 {
+                        columns {
+                            1 {
+                                name = Content
+                                colPos = 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

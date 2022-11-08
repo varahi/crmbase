@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <ROOT type="array">
+        <type>array</type>
+        <el type="array">
+            <hide_row>
+                <TCEforms type="array">
+                    <label>Hide row</label>
+                    <config>
+                        <type>check</type>
+                    </config>
+                </TCEforms>
+            </hide_row>
+            <row_class>
+                <TCEforms type="array">
+                    <label>Additional row class</label>
+                    <config>
+                        <type>input</type>
+                        <size>48</size>
+                        <eval>trim</eval>
+                    </config>
+                </TCEforms>
+            </row_class>
+            <col_class1>
+                <TCEforms type="array">
+                    <label>Additional column 1 class</label>
+                    <config>
+                        <type>input</type>
+                        <size>48</size>
+                        <eval>trim</eval>
+                    </config>
+                </TCEforms>
+            </col_class1>
+            <col_class2>
+                <TCEforms type="array">
+                    <label>Additional column 2 class</label>
+                    <config>
+                        <type>input</type>
+                        <size>48</size>
+                        <eval>trim</eval>
+                    </config>
+                </TCEforms>
+            </col_class2>
+            <col_class3>
+                <TCEforms type="array">
+                    <label>Additional column 3 class</label>
+                    <config>
+                        <type>input</type>
+                        <size>48</size>
+                        <eval>trim</eval>
+                    </config>
+                </TCEforms>
+            </col_class3>
+            <col_class4>
+                <TCEforms type="array">
+                    <label>Additional column 4 class</label>
+                    <config>
+                        <type>input</type>
+                        <size>48</size>
+                        <eval>trim</eval>
+                    </config>
+                </TCEforms>
+            </col_class4>
+        </el>
+    </ROOT>
+</T3DataStructure>

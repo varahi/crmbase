@@ -1,0 +1,33 @@
+<div class="fixed-load loading-img">
+	<div class="content-load">
+		<div class="logo">
+			<img src="/fileadmin/images/logo-footer.svg" width="222" height="89" alt="Voyages envie d'ailleurs"/>
+		</div>
+		<div class="loader"></div>
+	</div>
+</div>
+<header id="header">
+	<div class="content-inner">
+		<div id="top-header">
+			<div id="logo">
+				<a href="/" title="Voyages envie d'ailleurs">
+					<img src="/fileadmin/images/logo.svg" width="152" height="43" alt="Voyages envie d'ailleurs"/>
+				</a>
+			</div>
+			<div id="right-header">
+				<f:link.page pageUid="15" class="bt-plan">Plan</f:link.page>
+				<f:link.page pageUid="16" class="bt-horaire">Horaire</f:link.page>
+				<p>
+				<f:if condition='{data.phone_home}'>
+					<f:then>{data.phone_home}</f:then>
+					<f:else>{breadcrumb.0.data.phone_home}</f:else>
+				</f:if>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="main-menu">
+		<div class="mobile-menu"><span>MENU</span></div>
+		<f:render partial="Navigation" arguments="{_all}" />
+	</div>
+</header>

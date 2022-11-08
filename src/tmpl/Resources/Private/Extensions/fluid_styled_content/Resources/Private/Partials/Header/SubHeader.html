@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{subheader}">
+    <f:switch expression="{layout}">
+        <f:case value="1">
+            <div class="subheader {positionClass}">
+                <f:format.html>{subheader}</f:format.html>
+            </div>
+        </f:case>
+        <f:case value="2">
+            <div class="subheader {positionClass}">
+                <f:format.html>{subheader}</f:format.html>
+            </div>
+        </f:case>
+        <f:case value="3">
+            <div class="subheader {positionClass}">
+                <f:format.html>{subheader}</f:format.html>
+            </div>
+        </f:case>
+        <f:case value="4">
+            <div class="subheader {positionClass}">
+                <f:format.html>{subheader}</f:format.html>
+            </div>
+        </f:case>
+        <f:case value="5">
+            <div class="subheader {positionClass}">
+                <f:format.html>{subheader}</f:format.html>
+            </div>
+        </f:case>
+        <f:defaultCase>
+            <f:if condition="{default}">
+                <f:render partial="Header/SubHeader" arguments="{
+                    subheader: subheader,
+                    positionClass: positionClass,
+                    layout: default}" />
+            </f:if>
+        </f:defaultCase>
+    </f:switch>
+</f:if>
+</html>

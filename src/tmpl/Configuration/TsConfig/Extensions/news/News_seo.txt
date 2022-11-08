@@ -1,0 +1,124 @@
+
+#on n'affiche pas la balise title générée par TYPO3
+config.noPageTitle = 2
+
+# Modification titre de la page
+pageTitle >
+pageTitle = COA
+pageTitle{
+   #wrap = |
+  20 = RECORDS
+     20 {
+          stdWrap.if.isTrue.data = GP:tx_news_pi1|news
+          dontCheckPid = 1
+          tables = tx_news_domain_model_news
+          source.data = GP:tx_news_pi1|news
+           source.intval = 1
+          conf.tx_news_domain_model_news = TEXT
+          conf.tx_news_domain_model_news {
+                field = title
+          }
+				wrapItemAndSub.insertData=1
+                stdWrap.wrap = |
+                stdWrap.required = 1
+				stdWrap.HTMLparser = 1
+				stdWrap.insertData = 1
+				stdWrap.htmlSpecialChars = 0
+      }
+       
+}
+page.10.variables.pageTitle < pageTitle
+#page.10.meta.og:title >
+
+# Page title généré à partir de tt_news
+temp.newsTitle = COA
+temp.newsTitle {
+    wrap = <title>|</title>
+	10 = RECORDS
+	10 {
+		source = {GP:tx_news_pi1|news}
+		source.insertData = 1
+		tables = tx_news_domain_model_news
+		conf.tx_news_domain_model_news >
+		conf.tx_news_domain_model_news = TEXT
+		conf.tx_news_domain_model_news.field = alternative_title//title
+	}
+}
+
+
+temp.newsImageFacebook = COA
+temp.newsImageFacebook {
+        wrap = <meta property="og:image" content="http://{$config.domain}/uploads/pics/|" />
+  10 = RECORDS
+  10 {
+    source = {GPvar:tx_ttnews|tt_news}
+    source.insertData = 1
+    tables = tt_news
+    conf.tt_news >
+    conf.tt_news = TEXT
+    conf.tt_news.field = image
+    conf.tt_news.split {
+                  token = ,
+                  returnKey = 0
+                }
+  }
+}
+
+temp.newsUrlFacebook = COA
+temp.newsUrlFacebook {
+        wrap = <meta property="og:url" content="|" />
+        10 = TEXT
+        10.typolink {
+          parameter.data = TSFE:id
+          addQueryString = GET
+           additionalParams.insertData=1
+           addQueryString.exclude = cHash
+           returnLast = url
+           rawUrlEncode = 1
+       }
+}
+
+temp.newsDescFacebook = COA
+temp.newsDescFacebook {
+        wrap = <meta property="og:description" content="|" />
+  10 = RECORDS
+  10 {
+    source = {GPvar:tx_ttnews|tt_news}
+    source.insertData = 1
+    tables = tt_news
+    conf.tt_news >
+    conf.tt_news = TEXT
+    conf.tt_news.field = short//bodytext
+    conf.tt_news.stdWrap.stripHtml = 1
+  }
+}
+
+#ce n'est plus utile, tt_news le fait automatiquement
+page.headerData.5 < temp.newsTitle
+page.headerData.10 >
+
+#page.headerData.110 >
+#page.headerData.110 < temp.newsTitle
+
+#page.headerData.111 > 
+#page.headerData.111 < temp.newsImageFacebook
+
+#page.headerData.112 > 
+#page.headerData.112 < temp.newsUrlFacebook
+
+#page.headerData.113 > 
+#page.headerData.113 < temp.newsDescFacebook
+
+# Page description généré à partir de tt_news
+page.headerData.999 {
+    local >
+    local {
+      description.data = register:newsSubheader
+    }
+}
+page.meta.og:title >
+page.meta.og:site_name >
+page.meta.og:description >
+page.meta.og:image >
+
+page.headerData.200 >

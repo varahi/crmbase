@@ -1,0 +1,95 @@
+# manually inserted CSS files
+page {
+    includeCSS {
+        10_animate  = EXT:tmpl/Resources/Public/css/animate.css
+        20_icomoon  = EXT:tmpl/Resources/Public/css/icomoon.css
+
+        30_bootstrap  = EXT:tmpl/Resources/Public/css/bootstrap/bootstrap.css
+        31_bootstrap_grid  = EXT:tmpl/Resources/Public/css/bootstrap/bootstrap-grid.css
+
+        40_carousel  = EXT:tmpl/Resources/Public/css/owl.carousel.min.css
+        50_carousel_theme  = EXT:tmpl/Resources/Public/css/owl.theme.default.min.css
+        60_style  = EXT:tmpl/Resources/Public/css/style.css
+        100_style  = EXT:tmpl/Resources/Public/css/custom.css
+        200_media_queries  = EXT:tmpl/Resources/Public/css/media_queries.css
+    }
+
+    includeJSLibs {
+        10_modernizr =EXT:tmpl/Resources/Public/js/modernizr-2.6.2.min.js
+        #20_respond =EXT:tmpl/Resources/Public/js/respond.min.js
+        #10_jquery = https://code.jquery.com/jquery-2.2.4.min.js
+        #20_slick = EXT:tmpl/Resources/Public/JavaScript/main.js
+        #10_modernizr = EXT:tmpl/Resources/Public/js/modernizr-2.6.2.min.js
+    }
+
+    includeJSFooterlibs {
+        10_jquery = EXT:tmpl/Resources/Public/js/jquery.min.js
+        20_jquery_easing = EXT:tmpl/Resources/Public/js/jquery.easing.1.3.js
+        30_bootstrap = EXT:tmpl/Resources/Public/js/bootstrap.min.js
+        40_carousel = EXT:tmpl/Resources/Public/js/owl.carousel.min.js
+        50_stellar = EXT:tmpl/Resources/Public/js/jquery.stellar.min.js
+        60_waypoint = EXT:tmpl/Resources/Public/js/jquery.waypoints.min.js
+        70_countTo = EXT:tmpl/Resources/Public/js/jquery.countTo.js
+        100_main = EXT:tmpl/Resources/Public/js/main.js
+    }
+
+    # manually inserted JavaScript files
+    includeJSFooter {
+    }
+}
+
+
+page {
+    headerData {
+        998 = TEXT
+        998.value (
+	        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        )
+
+        // Flip ahead browsing for IE10/11
+        // http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
+        10 = HMENU
+        10 {
+            special = browse
+            special {
+                items = prev|next
+            }
+            1 = TMENU
+            1.NO {
+                allWrap = <link rel="prev" href="|"> |*| <link rel="next" href="|">
+                doNotLinkIt = 1
+                stdWrap {
+                    typolink {
+                        parameter.data = field:uid
+                        useCacheHash = 1
+                        returnLast = url
+                    }
+                }
+            }
+        }
+		
+		200 = COA
+		200 {
+			1 = TEXT
+			1.value = <meta property="og:locale" content="
+			2 = TEXT
+			2.value < config.locale_all
+			3 = TEXT
+			3.value (
+                " />
+				<meta property="og:type" content="website" />
+				<meta property="og:description" content="{page:description}" />
+				<meta name="twitter:card" content="summary" />
+			)
+			3.insertData = 1
+		}
+    }
+}
+
+# Example for additional favicons
+#page.headerData.2039 = FLUIDTEMPLATE
+#page.headerData.2039 {
+#    file = EXT:tmpl/Resources/Private/Pages/Partials/Favicons.html
+#    extbase.controllerExtensionName = tmpl
+#}

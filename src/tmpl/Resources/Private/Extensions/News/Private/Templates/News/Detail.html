@@ -1,0 +1,92 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="Detail" />
+
+<!--
+	=====================
+		News/Detail.html
+-->
+
+<f:section name="content">
+	<f:if condition="{newsItem}">
+		<f:then>
+			<n:format.nothing>
+				<n:excludeDisplayedNews newsItem="{newsItem}" />
+				<f:if condition="{newsItem.alternativeTitle}">
+					<f:then>
+						<n:titleTag>
+							<f:format.htmlentitiesDecode>{newsItem.alternativeTitle}</f:format.htmlentitiesDecode>
+						</n:titleTag>
+					</f:then>
+					<f:else>
+						<n:titleTag>
+							<f:format.htmlentitiesDecode>{newsItem.title}</f:format.htmlentitiesDecode>
+						</n:titleTag>
+					</f:else>
+				</f:if>
+				<f:render partial="Detail/Opengraph" arguments="{newsItem: newsItem, settings:settings}" />
+			</n:format.nothing>
+			<div class="content-news">
+				<div class="left-news">
+				<f:if condition="{settings.backPid}">
+					<!-- Link Back -->
+					<div class="news-backlink-wrap">
+						<f:link.page pageUid="{settings.backPid}">
+							<f:translate key="back-link" />
+						</f:link.page>
+					</div>
+				</f:if>
+				<n:renderMedia news="{newsItem}" imgClass="img-responsive" videoClass="video-wrapper" audioClass="audio-wrapper">
+					
+					<!-- main text -->
+					<div class="news-text-wrap" itemprop="articleBody">
+						<f:format.html>{newsItem.teaser}</f:format.html>
+						<f:format.html>{newsItem.bodytext}</f:format.html>
+						<hr>
+						<f:if condition="{newsItem.eventEnd}">
+							<f:then>
+								<p class="date">
+									<strong>Date de l'évènement : </strong> Du <f:format.date format="%d/%m">{newsItem.datetime}</f:format.date> au <f:format.date format="%d/%m">{newsItem.eventEnd}</f:format.date> <f:format.date format="%Y">{newsItem.eventEnd}</f:format.date>
+								</p>
+							</f:then>
+						</f:if>
+						<f:if condition="{newsItem.organizer}">
+							<p><strong>Organisateur : </strong>{newsItem.organizer}</p>
+						</f:if>
+						<f:if condition="{newsItem.location}">
+							<p><strong>Localisation : </strong>{newsItem.location}</p>
+						</f:if>
+						<f:if condition="{newsItem.organizerSimple}">
+							<p><strong>Organisateur : </strong>{newsItem.organizerSimple}</p>
+						</f:if>
+						<f:if condition="{newsItem.locationSimple}">
+							<p><strong>Localisation : </strong>{newsItem.locationSimple}</p>
+						</f:if>
+					</div>
+				</n:renderMedia>
+				</div>
+				<f:if condition="{newsItem.mediaNonPreviews}">
+				<div class="right-news">
+					<div class="slideshow-news">
+						<f:render partial="Detail/MediaContainer" arguments="{media: newsItem.mediaNonPreviews, settings:settings}" />
+					</div>
+				</div>
+				</f:if>
+			</div>
+			<div class="custom-content">
+				<f:if condition="{newsItem.contentElements}">
+					<!-- content elements -->
+					<f:cObject typoscriptObjectPath="lib.tx_news.contentElementRendering">{newsItem.contentElementIdList}</f:cObject>
+				</f:if>
+			</div>
+
+		</f:then>
+		<f:else>
+
+		</f:else>
+	</f:if>
+</f:section>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Newsletter</title>
+</head>
+<body>
+<h3>Bonjour,</h3>
+<p>Pour vous abonner à notre newsletter, vous devez valider votre adresse e-mail en cliquant sur ce lien</p>
+<p><f:link.action pageUid="{subscribeVerifyUid}" extensionName="fpnewsletter" pluginName="pi1" controller="Log" action="verify" arguments="{uid: uid, hash: hash}" noCache="1" absolute="1"><f:format.raw><f:uri.action pageUid="{subscribeVerifyUid}" extensionName="fpnewsletter" pluginName="pi1" controller="Log" action="verify" arguments="{uid: uid, hash: hash}" noCache="1" absolute="1" /></f:format.raw></f:link.action></p>
+<p>Cordialement<br>
+{settings.company}</p>
+</body>
+</html>

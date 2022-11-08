@@ -1,0 +1,25 @@
+#----------------------------------------------#
+# PLUGIN: tx_form
+#----------------------------------------------#
+plugin.tx_form {
+    mvc {
+        callDefaultActionIfActionCantBeResolved = 1
+    }
+    settings {
+        yamlConfigurations {
+            100 = EXT:tmpl/Configuration/Yaml/FormSetup.yaml
+        }
+    }
+}
+
+# Rendering of content elements
+lib.tx_form.contentElementRendering = RECORDS
+lib.tx_form.contentElementRendering {
+    tables = tt_content
+    source.current = 1
+    dontCheckPid = 1
+}
+
+module.tx_form.settings.yamlConfigurations {
+    100 = EXT:tmpl/Configuration/Yaml/FormSetup.yaml
+}

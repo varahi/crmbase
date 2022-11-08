@@ -1,0 +1,11 @@
+#@import 'EXT:news/Configuration/TypoScript/setup.txt'
+
+plugin.tx_news.view.templateRootPath = EXT:tmpl/Resources/Private/Extensions/News/Private/Templates/
+plugin.tx_news.view.partialRootPath = EXT:tmpl/Resources/Private/Extensions/News/Private/Partials/
+plugin.tx_news.view.layoutRootPath = EXT:tmpl/Resources/Private/Extensions/News/Private/Layouts/
+plugin.tx_news {
+	settings {
+		# cat=plugin.tx_news/file; type=string; label=Path to CSS file
+		cssFile = 
+	}
+}

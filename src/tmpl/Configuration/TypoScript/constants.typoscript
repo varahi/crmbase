@@ -1,0 +1,6 @@
+#
+# This is the very root template for any typoscript constant includes
+#
+
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:tmpl/Configuration/TypoScript/Constants/" extensions="typoscript">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:tmpl/Configuration/TypoScript/Constants/Plugins/" extensions="typoscript">

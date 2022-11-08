@@ -1,0 +1,67 @@
+<script>
+  	var owldomain = window.location.hostname.indexOf('owlgraphic');
+  	if(owldomain !== -1){
+    	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	}
+</script>
+<f:if condition="{settings.height}">
+    <f:then>
+        <f:variable name="styleHeight" value="height: {settings.height}px !important;" />
+        <f:variable name="height" value="{settings.height}c" />
+    </f:then>
+</f:if>
+ <f:if condition="{settings.imageWidth}">
+    <f:then>
+        <f:variable name="width" value="{settings.imageWidth}c" />
+    </f:then>
+</f:if>
+<div id="owl-demo-{getContentId}" class="owl-carousel owl-theme{f:if(condition: settings.thumbs, then: 'owl-carousel-thumbs')}" >
+	<f:for each="{galleries}" as="people">
+		<f:if condition="{people.image}">
+			<f:for each="{people.image}" as="picture">
+				<f:if condition="{settings.lazyLoad}=='true'">
+					<f:then>
+						<div class="item loading-img"  style="{styleHeight}">
+							<f:if condition="{settings.lightbox}">
+								<f:then>
+									<div class="image">
+										<f:link.typolink parameter="{picture.originalResource.publicUrl}" title="{picture.originalResource.title}" additionalAttributes="{'data-fancybox':'gallery'}">
+											<img class="lazyOwl" src="<f:uri.image src='{picture.originalResource.publicUrl}' width='{width}' height='{height}' treatIdAsReference='1'/>" title="{picture.originalResource.title}" alt="{picture.originalResource.alternative}" width="{width}" height="{height}"/>
+										</f:link.typolink>
+									</div>
+								</f:then>
+								<f:else>
+									<div class="image">
+										<f:link.typolink parameter="{picture.originalResource.link}" title="{picture.originalResource.title}">
+											<img class="lazyOwl" src="<f:uri.image src='{picture.originalResource.publicUrl}' width='{width}' height='{height}' treatIdAsReference='1'/>" title="{picture.originalResource.title}" alt="{picture.originalResource.alternative}" width="{width}" height="{height}"/>
+										</f:link.typolink>
+									</div>
+								</f:else>
+							</f:if>
+						</div>
+					</f:then>
+					<f:else>
+						<div class="item loading-img"  style="{styleHeight}">
+							<f:if condition="{settings.lightbox}">
+								<f:then>
+									<div class="image">
+									<f:link.typolink parameter="{picture.originalResource.publicUrl}" title="{picture.originalResource.title}" additionalAttributes="{'data-fancybox':'gallery'}">
+										<img class="lazyOwl" src="<f:uri.image src='{picture.originalResource.publicUrl}' width='{width}' height='{height}' treatIdAsReference='1'/>" title="{picture.originalResource.title}" alt="{picture.originalResource.alternative}" width="{width}" height="{height}"/>
+									</f:link.typolink>
+									</div>
+								</f:then>
+								<f:else>
+									<div class="image">
+										<f:link.typolink parameter="{picture.originalResource.link}" title="{picture.originalResource.title}">
+											<img class="lazyOwl" src="<f:uri.image src='{picture.originalResource.publicUrl}' width='{width}' height='{height}' treatIdAsReference='1'/>" title="{picture.originalResource.title}" alt="{picture.originalResource.alternative}" width="{width}" height="{height}"/>
+										</f:link.typolink>
+									</div>
+								</f:else>
+							</f:if>
+						</div>
+					</f:else>
+				</f:if>
+			</f:for>
+		</f:if>
+	</f:for>
+</div>

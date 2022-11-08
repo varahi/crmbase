@@ -1,0 +1,164 @@
+#
+# Defining some general constants
+#
+
+# basic config options
+config {
+    # cat=config : advanced/100/100; type=string; label=Admin Panel
+    adminPanel = 0
+    # cat=config : advanced/100/110; type=string; label=Debug
+    debug = 0
+
+    language = fr
+    locale = fr_FR.UTF-8
+    sys_language_uid = 0
+    locale_all = fr_FR
+
+    header {
+        logoTitle = Pimet Config
+        slogan =
+        phone =
+        email =
+    }
+    contact {
+
+    }
+    footer {
+        form {
+            title =
+            source =
+        }
+        // Copyright and footer address source
+        copyright = &copy; 2022
+        developer = Cygenic
+    }
+    navigation {
+        rootPid = 1
+    }
+    page {
+        siteTitle =
+        copyright =
+        address =
+    }
+
+    meta {
+        description =
+        og_description =
+        twitter_description =
+        keywords =
+    }
+}
+
+
+page {
+    favicon {
+        # cat=piment config: basic/111/100; type=string; label=Favicon
+        file = EXT:tmpl/Resources/Public/Images/favicon.ico
+    }
+
+    theme {
+        # cat=piment config: basic/160/100; type=options[Default=default, Default Transition=default-transition, Inverse=inverse, Inverse Transition=inverse-transition]; label=Navigation Style
+        navigationstyle = default
+        # cat=piment config: basic/160/101; type=options[Default=, Fixed Top=top, Fixed Bottom=bottom]; label=Navigation Type
+        navigationtype =
+        # cat=piment config: basic/160/110; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
+        breadcrumb = 1
+        # cat=piment config: basic/160/111; type=int+; label=Breadcrumb Enable Level: Enable breadcrumb menu is greater or equal this value
+        breadcrumbEnableLevel = 1
+
+        footersection {
+            # cat=piment config: basic/166/129; type=boolean; label=FooterSection: Enable to display the FooterSection at bottom
+            enable = 1
+        }
+
+        meta {
+            # cat=piment config: basic/167/meta_enable; type=boolean; label=MetaSection: Enable to display the MetaSection at bottom
+            enable = 1
+            # cat=piment config: basic/167/meta_navigationValue; type=string; label=Meta Navigation Values: Comma separated list of page uids
+            navigationValue =
+            # cat=piment config: basic/167/meta_navigationType; type=options[List=list, Directory=directory]; label=Meta Navigation Type
+            navigationType = list
+            # cat=piment config: basic/167/meta_includeNotInMenu; type=boolean; label=Meta Navigation include items not in menu
+            includeNotInMenu = 1
+        }
+
+        language {
+            # cat=piment config: basic/168/language_enable; type=boolean; label=LanguageSection: Enable to display the LanguageSection at bottom
+            enable = 0
+            # cat=piment config: basic/168/language_languageValue; type=string; label=Language Navigation Values: Comma separated list of language uids
+            languageValue = 0
+        }
+
+        copyright {
+            # cat=piment config: basic/169/120; type=boolean; label=Copyright: Enable to display the copyright
+            enable = 1
+            # cat=piment config: basic/169/121; type=string; label=Copyright Text
+            text = copyright
+        }
+		
+		mainmenu = 1
+    }
+
+    fluidtemplate {
+        # cat=piment config: advanced/100/100; type=string; label=Layout Root Path: Path to layouts
+        layoutRootPath = EXT:tmpl/Resources/Private/Pages/layouts/
+        # cat=piment config: advanced/100/110; type=string; label=Partial Root Path: Path to partials
+        partialRootPath = EXT:tmpl/Resources/Private/Pages/partials/
+        # cat=piment config: advanced/100/120; type=string; label=Template Root Path: Path to templates
+        templateRootPath = EXT:tmpl/Resources/Private/Pages/page_tpl/
+		
+        cssRootPath = EXT:tmpl/Resources/Public/Styles/
+        jsRootPath = EXT:tmpl/Resources/Public/JavaScript/
+        imageRootPath = EXT:tmpl/Resources/Public/Images/
+        pluginRootPath = EXT:tmpl/Resources/Public/Extensions/
+    }
+
+    meta {
+        # cat=piment config: basic/120/100; type=string; label=Description: Enter a short description of the page. It will be displayed in the result lists of most search engines.
+        description =
+        # cat=piment config: basic/120/110; type=string; label=Author: Enter the page author's name.
+        author =
+        # cat=piment config: basic/120/120; type=string; label=Keywords: Enter keywords for the page separated by commas. You may also use short phrases.
+        keywords =
+        # cat=piment config: advanced/120/100; type=string; label=viewport
+        viewport = width=device-width, initial-scale=1
+        # cat=piment config: advanced/120/110; type=string; label=robots
+        robots = index,follow
+        # cat=piment config: advanced/120/120; type=string; label=apple-mobile-web-app-capable
+        apple-mobile-web-app-capable = no
+        # cat=piment config: advanced/120/130; type=string; label=compatible
+        compatible = IE=edge
+        # cat=piment config: advanced/120/140; type=string; label=google
+        google = notranslate
+    }
+
+    tracking {
+        google {
+            # cat=piment config: basic/180/100; type=string; label=Google: Tracking-ID
+            trackingID =
+            # cat=piment config: basic/180/110; type=boolean; label=Google: IP-anonymisation
+            anonymizeIp = 1
+        }
+    }
+}
+
+
+###############
+### FELOGIN ###
+###############
+styles.content.loginform {
+  # cat=Frontend Login/02_Template/100; type=string; label= Login template: Enter the path for the HTML template to be used
+  templateFile = FILE:EXT:tmpl/Resources/Private/Extensions/felogin/Private/Templates/Login/Login.html
+}
+plugin {
+  tx_felogin_login {
+    view {
+      # cat=Frontend Login/02_Template/102; type=string; label= Path to template root (FE)
+      templateRootPath = EXT:tmpl/Resources/Private/Extensions/felogin/Private/Templates/
+      # cat=Frontend Login/02_Template/103; type=string; label= Path to template partials (FE)
+      partialRootPath = EXT:tmpl/Resources/Private/Extensions/felogin/Private/Partials/
+      # cat=Frontend Login/02_Template/104; type=string; label= Path to template layouts (FE)
+      layoutRootPath = EXT:tmpl/Resources/Private/Extensions/felogin/Private/Layouts/
+    }
+  }
+}

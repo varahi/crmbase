@@ -1,0 +1,88 @@
+<f:if condition="{data.flexform_hide_row} == 1">
+    <f:then>
+		<f:if condition="{data.header} || {data.subheader} || {data.date}">
+			<header>
+				 <f:switch expression="{data.header_layout}">
+				<f:case value="1">
+					<h1 class="{data.header_position}">
+						<f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+					</h1>
+				</f:case>
+				<f:case value="2">
+					<h2 class="{data.header_position}">
+						<f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+					</h2>
+				</f:case>
+				<f:case value="3">
+					<h3 class="{data.header_position}">
+						<f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+					</h3>
+				</f:case>
+			</f:switch>
+			<f:switch expression="{data.header_layout}">
+				<f:case value="1">
+					<div class="subheader">
+						<f:format.html>{data.subheader}</f:format.html>
+					</div>
+				</f:case>
+				<f:case value="2">
+					<div class="subheader">
+						<f:format.html>{data.subheader}</f:format.html>
+					</div>
+				</f:case>
+				<f:case value="3">
+					<div class="subheader">
+						<f:format.html>{data.subheader}</f:format.html>
+					</div>
+				</f:case>
+			</f:switch>
+			</header>
+		</f:if>
+        <f:render partial="01_TwoColumns" arguments="{_all}" />
+    </f:then>
+    <f:else>
+        <div class="{data.flexform_row_class} {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+			<f:if condition="{data.header} || {data.subheader} || {data.date}">
+				<header>
+					 <f:switch expression="{data.header_layout}">
+					<f:case value="1">
+						<h1 class="{data.header_position}">
+							<f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+						</h1>
+					</f:case>
+					<f:case value="2">
+						<h2 class="{data.header_position}">
+							<f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+						</h2>
+					</f:case>
+					<f:case value="3">
+						<h3 class="{data.header_position}">
+							<f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+						</h3>
+					</f:case>
+				</f:switch>
+				<f:switch expression="{data.header_layout}">
+					<f:case value="1">
+						<div class="subheader">
+							<f:format.html>{data.subheader}</f:format.html>
+						</div>
+					</f:case>
+					<f:case value="2">
+						<div class="subheader">
+							<f:format.html>{data.subheader}</f:format.html>
+						</div>
+					</f:case>
+					<f:case value="3">
+						<div class="subheader">
+							<f:format.html>{data.subheader}</f:format.html>
+						</div>
+					</f:case>
+				</f:switch>
+				</header>
+			</f:if>
+            <div class="row">
+				<f:render partial="01_TwoColumns" arguments="{_all}" />
+			</div>
+        </div>
+    </f:else>
+</f:if>

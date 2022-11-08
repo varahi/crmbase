@@ -1,0 +1,234 @@
+
+renderingOptions:
+  submitButtonLabel: Envoyer
+type: Form
+identifier: voyagesengroupe
+label: 'Voyages en groupe'
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: '[Voyages Envie d''Ailleurs] - Voyage en groupe  {email-1}'
+      recipients:
+        yohann@pimentrouge.fr: ''
+      senderAddress: noreply@voyages-enviedailleurs.com
+      senderName: 'Voyages Envie d''Ailleurs'
+      addHtmlPart: true
+      attachUploads: true
+      translation:
+        language: Default
+      useFluidEmail: true
+      title: 'Voyages en groupe'
+    identifier: EmailToReceiver
+#    templateName: '{@format}.html'
+#    templateRootPaths:
+#      100: 'EXT:tmpl/Resources/Private/Forms/Frontend/Templates/Finishers/Email/'
+  -
+    options:
+      message: "Votre message a été envoyé.\nUne personne de notre équipe va vous recontacter dès que possible."
+      contentElementUid: ''
+    identifier: Confirmation
+  -
+    options:
+      pageUid: '28'
+      additionalParameters: ''
+    identifier: Redirect
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: ''
+      nextButtonLabel: ''
+    type: Page
+    identifier: page-1
+    label: ''
+    renderables:
+      -
+        type: Fieldset
+        identifier: fieldset-1
+        label: Fieldset
+        renderables:
+          -
+            properties:
+              options:
+                'Un particulier': 'Un particulier'
+                'Une association': 'Une association'
+                'Un professionnel ': 'Un professionnel '
+                Scolaire: Scolaire
+            type: RadioButton
+            identifier: radiobutton-2
+            label: 'Vous êtes :'
+          -
+            type: GridRow
+            identifier: gridrow-1
+            label: 'Grid: Row'
+            renderables:
+              -
+                defaultValue: ''
+                type: Text
+                identifier: text-1
+                label: 'Nom de la structure'
+                properties:
+                  gridColumnClassAutoConfiguration:
+                    viewPorts:
+                      xxl:
+                        numbersOfColumnsToUse: '0'
+                  fluidAdditionalAttributes:
+                    required: required
+                validators:
+                  -
+                    identifier: NotEmpty
+              -
+                defaultValue: ''
+                type: Text
+                identifier: text-2
+                label: 'Nom du contact'
+                properties:
+                  fluidAdditionalAttributes:
+                    required: required
+                validators:
+                  -
+                    identifier: NotEmpty
+          -
+            type: GridRow
+            identifier: gridrow-2
+            label: 'Grid: Row'
+            renderables:
+              -
+                defaultValue: ''
+                type: Text
+                identifier: text-3
+                label: Adresse
+                properties:
+                  fluidAdditionalAttributes:
+                    required: required
+                validators:
+                  -
+                    identifier: NotEmpty
+              -
+                type: GridRow
+                identifier: gridrow-3
+                label: 'Grid: Row'
+                renderables:
+                  -
+                    defaultValue: ''
+                    type: Text
+                    identifier: text-4
+                    label: 'Code postal'
+                    properties:
+                      fluidAdditionalAttributes:
+                        required: required
+                      gridColumnClassAutoConfiguration:
+                        viewPorts:
+                          md:
+                            numbersOfColumnsToUse: ''
+                          lg:
+                            numbersOfColumnsToUse: '4'
+                          xxl:
+                            numbersOfColumnsToUse: ''
+                      elementDescription: ''
+                    validators:
+                      -
+                        identifier: NotEmpty
+                  -
+                    defaultValue: ''
+                    type: Text
+                    identifier: text-5
+                    label: Ville
+                    properties:
+                      fluidAdditionalAttributes:
+                        required: required
+                      gridColumnClassAutoConfiguration:
+                        viewPorts:
+                          xxl:
+                            numbersOfColumnsToUse: ''
+                          lg:
+                            numbersOfColumnsToUse: ''
+                    validators:
+                      -
+                        identifier: NotEmpty
+          -
+            type: GridRow
+            identifier: gridrow-4
+            label: 'Grid: Row'
+            renderables:
+              -
+                defaultValue: ''
+                type: Email
+                identifier: email-1
+                label: Email
+                properties:
+                  fluidAdditionalAttributes:
+                    required: required
+                validators:
+                  -
+                    identifier: EmailAddress
+                  -
+                    identifier: NotEmpty
+              -
+                defaultValue: ''
+                type: Telephone
+                identifier: telephone-1
+                label: Téléphone
+          -
+            type: GridRow
+            identifier: gridrow-5
+            label: 'Grid: Row'
+            renderables:
+              -
+                defaultValue: ''
+                type: Text
+                identifier: text-6
+                label: Destination
+                properties:
+                  fluidAdditionalAttributes:
+                    required: required
+                validators:
+                  -
+                    identifier: NotEmpty
+              -
+                properties:
+                  dateFormat: d/m/Y
+                  enableDatePicker: true
+                  displayTimeSelector: false
+                  fluidAdditionalAttributes:
+                    required: required
+                    placeholder: dd/mm/yyyy
+                type: DatePicker
+                identifier: datepicker-1
+                label: 'Date de départ'
+                validators:
+                  -
+                    identifier: NotEmpty
+              -
+                properties:
+                  dateFormat: d/m/Y
+                  enableDatePicker: true
+                  displayTimeSelector: false
+                  fluidAdditionalAttributes:
+                    required: required
+                    placeholder: dd/mm/yyyy
+                type: DatePicker
+                identifier: datepicker-2
+                label: 'Date du retour'
+                validators:
+                  -
+                    identifier: NotEmpty
+              -
+                defaultValue: ''
+                properties:
+                  fluidAdditionalAttributes:
+                    step: 1
+                    required: required
+                type: Number
+                identifier: number-1
+                label: 'Nombre de passagers'
+                validators:
+                  -
+                    identifier: Number
+                  -
+                    identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Textarea
+            identifier: textarea-1
+            label: 'Renseignements complémentaires'

@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="main">
+<f:flashMessages />
+
+<f:if condition="{error} > 0">
+<f:then>
+	<f:if condition="{error} == 7">
+		<p class="alert alert-danger">{f:translate(key: 'wrong_unsubscribed', default: 'you are not subscribed')}</p>
+	</f:if>
+	<f:if condition="{error} == 8">
+		<p class="alert alert-danger">{f:translate(key: 'wrong_email', default: 'ivalid email')}</p>
+	</f:if>
+	<f:if condition="{error} == 9">
+		<p class="alert alert-danger">{f:translate(key: 'wrong_captcha', default: 'ivalid captcha')}</p>
+	</f:if>
+	<f:if condition="{error} == 10">
+		<p class="alert alert-danger">{f:translate(key: 'wrong_honeypot', default: 'spam detected')}</p>
+	</f:if>
+	<p><a href="javascript:history.back();">{f:translate(key: 'go_back')}</a></p>
+</f:then>
+<f:else>
+	<f:if condition="{settings.doubleOptOut} == 1">
+	<f:then>
+		<p>{f:translate(key: 'email_send2', default: 'email sent to you')}</p>
+	</f:then>
+	<f:else>
+		<p>{f:translate(key: 'email_removed', default: 'email removed')}</p>
+	</f:else>
+	</f:if>
+</f:else>
+</f:if>
+</f:section>
+</html>

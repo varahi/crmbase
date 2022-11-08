@@ -1,0 +1,124 @@
+{
+    "tt_content": {
+        "elements": {
+            "contenu_avec_palette": {
+                "key": "contenu_avec_palette",
+                "label": "Contenu avec palette",
+                "description": "",
+                "shortLabel": "",
+                "color": "#000000",
+                "icon": "",
+                "columns": [
+                    "tx_mask_09f441d425fe4"
+                ],
+                "labels": [
+                    "Palette"
+                ],
+                "descriptions": [
+                    ""
+                ],
+                "sorting": "2"
+            },
+            "contenu_palette_2": {
+                "key": "contenu_palette_2",
+                "label": "Contenu palette 2",
+                "description": "",
+                "shortLabel": "",
+                "color": "#000000",
+                "icon": "",
+                "columns": [
+                    "tx_mask_24676882f6654"
+                ],
+                "labels": [
+                    "tx_mask_palette2"
+                ],
+                "descriptions": [
+                    ""
+                ],
+                "sorting": "3"
+            },
+            "simple_text": {
+                "key": "simple_text",
+                "label": "Simple text",
+                "description": "",
+                "shortLabel": "",
+                "color": "#000000",
+                "icon": "",
+                "columns": [
+                    "header",
+                    "tx_mask_cd7d36f814f66",
+                    "bodytext",
+                    "tx_mask_bodytext2"
+                ],
+                "labels": [
+                    "Header",
+                    "Palette",
+                    "Bodytext",
+                    "Bodytext2"
+                ],
+                "descriptions": [
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "sorting": "1"
+            }
+        },
+        "sql": {
+            "tx_mask_bodytext2": {
+                "tt_content": {
+                    "tx_mask_bodytext2": "mediumtext"
+                }
+            }
+        },
+        "tca": {
+            "bodytext": {
+                "coreField": 1,
+                "type": "richtext",
+                "key": "bodytext",
+                "fullKey": "bodytext"
+            },
+            "header": {
+                "coreField": 1,
+                "type": "string",
+                "key": "header",
+                "fullKey": "header"
+            },
+            "tx_mask_09f441d425fe4": {
+                "config": {
+                    "type": "palette"
+                },
+                "type": "palette",
+                "key": "09f441d425fe4",
+                "fullKey": "tx_mask_09f441d425fe4"
+            },
+            "tx_mask_24676882f6654": {
+                "config": {
+                    "type": "palette"
+                },
+                "type": "palette",
+                "key": "24676882f6654",
+                "fullKey": "tx_mask_24676882f6654"
+            },
+            "tx_mask_bodytext2": {
+                "config": {
+                    "enableRichtext": 1,
+                    "type": "text"
+                },
+                "type": "richtext",
+                "key": "bodytext2",
+                "fullKey": "tx_mask_bodytext2"
+            },
+            "tx_mask_cd7d36f814f66": {
+                "config": {
+                    "type": "palette"
+                },
+                "type": "palette",
+                "key": "cd7d36f814f66",
+                "fullKey": "tx_mask_cd7d36f814f66"
+            }
+        },
+        "palettes": []
+    }
+}

@@ -1,0 +1,27 @@
+TYPO3:
+  CMS:
+    Form:
+      persistenceManager:
+        allowedFileMounts:
+          10: '1:/forms/'
+        allowSaveToExtensionPaths: false
+        allowDeleteFromExtensionPaths: false
+        sortByKeys:
+          - name
+          - fileUid
+        sortAscending: true
+
+#        allowedExtensionPaths:
+#          10: EXT:tmpl/Resources/Private/Forms/
+
+#      prototypes:
+#        standard:
+#         formElementsDefinition:
+#            Form:
+#              renderingOptions:
+#                templateRootPaths:
+#                 20: 'EXT:tmpl/Resources/Private/Content/Form/Templates/'
+#                partialRootPaths:
+#                  20: 'EXT:tmpl/Resources/Private/Content/Form/Partials/'
+#                layoutRootPaths:
+#                  20: 'EXT:tmpl/Resources/Private/Content/Layouts/'

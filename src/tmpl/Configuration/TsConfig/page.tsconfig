@@ -1,0 +1,8 @@
+###
+# general Page TS Config
+
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:tmpl/Configuration/TsConfig/BackendLayouts/" extensions="tsconfig">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:tmpl/Configuration/TsConfig/Page/" extensions="tsconfig">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:tmpl/Configuration/TsConfig/Extensions/Gridelements/" extensions="tsconfig">
+
+admPanel.hide = 0

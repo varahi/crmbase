@@ -1,0 +1,74 @@
+
+renderingOptions:
+  submitButtonLabel: Submit
+type: Form
+identifier: formtest
+label: 'Form test'
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: 'Mail receveur'
+      recipients:
+        '': ''
+      senderAddress: noreply@voyages-enviedailleurs.com
+      senderName: 'Voyage Envie d''ailleurs'
+      addHtmlPart: true
+      attachUploads: true
+      useFluidEmail: false
+      title: ''
+    identifier: EmailToSender
+  -
+    options:
+      subject: 'Mail admin'
+      recipients:
+        yohann@pimentrouge.fr: yohann
+      senderAddress: noreply@voyages-enviedailleurs.com
+      senderName: 'Voyage Envie d''ailleurs'
+      addHtmlPart: true
+      attachUploads: true
+      translation:
+        language: Default
+      useFluidEmail: false
+      title: ''
+    identifier: EmailToReceiver
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    label: Step
+    renderables:
+      -
+        type: Fieldset
+        identifier: fieldset-1
+        label: Fieldset
+        renderables:
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-1
+            label: Text
+          -
+            properties:
+              options:
+                'choix 1': 'choix 1'
+                'choix 2': 'choix 2'
+            type: RadioButton
+            identifier: radiobutton-1
+            label: 'Radio button'
+      -
+        defaultValue: ''
+        validators:
+          -
+            identifier: EmailAddress
+          -
+            identifier: NotEmpty
+        type: Email
+        identifier: email-1
+        label: 'Email address'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
