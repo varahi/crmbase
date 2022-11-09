@@ -1,4 +1,4 @@
-base: '/'
+base: /
 baseVariants:
   -
     base: 'http://crmbaza.ddev.site/'
@@ -7,15 +7,15 @@ errorHandling:
   -
     errorCode: 404
     errorHandler: Page
-    errorContentSource: 't3://page?uid=11'
+    errorContentSource: 't3://page?uid=6'
 languages:
   -
-    title: France
+    title: Russia
     enabled: true
     base: /
-    typo3Language: fr
-    locale: fr_FR.UTF-8
-    iso-639-1: fr
+    typo3Language: ru
+    locale: ru_RU.UTF-8
+    iso-639-1: ru
     navigationTitle: ''
     hreflang: ''
     direction: ''
@@ -65,5 +65,5 @@ routes:
   -
     route: robots.txt
     type: staticText
-    content: "User-Agent: *\r\nAllow: /\r\nAllow: *.css\r\nAllow: *.js\r\nAllow: /typo3/sysext/frontend/Resources/Public/*\r\nDisallow: /fileadmin/\r\nDisallow: /typo3/\r\nDisallow: /typo3conf/\r\nDisallow: /typo3temp/\r\nDisallow: /*?id=*\r\nDisallow: /*&type=98\r\nSitemap: http://piment-config.site/sitemap.xml\r\nHost: piment-config.site\r\n"
+    content: "User-Agent: *\r\nAllow: /\r\nAllow: *.css\r\nAllow: *.js\r\nAllow: /typo3/sysext/frontend/Resources/Public/*\r\nDisallow: /fileadmin/\r\nDisallow: /typo3/\r\nDisallow: /typo3conf/\r\nDisallow: /typo3temp/\r\nDisallow: /*?id=*\r\nDisallow: /*&type=98\r\nSitemap: http://crmbaza.ddev.site/sitemap.xml\r\nHost: piment-config.site\r\n"
 websiteTitle: ''

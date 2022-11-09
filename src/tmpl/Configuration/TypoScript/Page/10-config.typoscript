@@ -39,12 +39,12 @@ config {
     setJS_openPic = 0
 
     # CSS handling
-    compressCss = 0
-    concatenateCss = 0
+    compressCss = 1
+    concatenateCss = 1
 
     # JS handling
-    compressJs = 0
-    concatenateJs = 0
+    compressJs = 1
+    concatenateJs = 1
 
     # for browsers and proxies
     sendCacheHeaders = 1

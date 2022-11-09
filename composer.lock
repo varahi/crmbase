@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74ced7b61d58191dd6245219df291682",
+    "content-hash": "5f833a9023d5ecf6d0737a23736f472d",
     "packages": [
         {
             "name": "configloader/configloader",
@@ -707,184 +707,6 @@
                 "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.15.4"
             },
             "time": "2022-02-21T09:13:59+00:00"
-        },
-        {
-            "name": "evoweb/recaptcha",
-            "version": "10.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/evoWeb/recaptcha.git",
-                "reference": "7e12470f3fd3f44a53f56af6d3dabd1253ef332e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/evoWeb/recaptcha/zipball/7e12470f3fd3f44a53f56af6d3dabd1253ef332e",
-                "reference": "7e12470f3fd3f44a53f56af6d3dabd1253ef332e",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "^10.4",
-                "typo3/cms-frontend": "^10.4"
-            },
-            "suggest": {
-                "typo3/cms-form": "^10.4"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "recaptcha",
-                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
-                    "web-dir": ".Build/Web"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Evoweb\\Recaptcha\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Easy on Humans, Hard on Bots",
-            "homepage": "http://www.evoweb.de",
-            "keywords": [
-                "Invisible captcha",
-                "nocaptcha 2",
-                "recaptcha"
-            ],
-            "support": {
-                "docs": "https://docs.typo3.org/p/evoweb/recaptcha/master/en-us/",
-                "issues": "https://github.com/evoWeb/recaptcha/issues",
-                "source": "https://github.com/evoWeb/recaptcha/tree/10.0.3"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.me/garbast",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/garbast",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-11-21T09:31:58+00:00"
-        },
-        {
-            "name": "fixpunkt/fp-newsletter",
-            "version": "v2.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bihor/fp_newsletter.git",
-                "reference": "88c6bb60b2c5ceaeb8cb953fd32a559b1f339d0f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bihor/fp_newsletter/zipball/88c6bb60b2c5ceaeb8cb953fd32a559b1f339d0f",
-                "reference": "88c6bb60b2c5ceaeb8cb953fd32a559b1f339d0f",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "~10.4.6 || ~11.5.3"
-            },
-            "replace": {
-                "typo3-ter/fp-newsletter": "self.version"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "fp_newsletter"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Fixpunkt\\FpNewsletter\\": "Classes"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Kurt Gusbeth",
-                    "homepage": "https://www.quizpalme.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Plugin for newsletter subscription and unsubscription (for direct_mail). Used table: tt_address. A log is written.",
-            "homepage": "https://www.fixpunkt.com/webentwicklung/typo3/typo3-programmierung",
-            "keywords": [
-                "dsgvo",
-                "gdpr",
-                "newsletter subscription"
-            ],
-            "support": {
-                "email": "info@quizpalme.de",
-                "issues": "https://github.com/bihor/fp_newsletter/issues",
-                "source": "https://github.com/bihor/fp_newsletter/tree/v2.4.0"
-            },
-            "time": "2022-03-16T14:19:23+00:00"
-        },
-        {
-            "name": "friendsoftypo3/tt-address",
-            "version": "5.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfTYPO3/tt_address.git",
-                "reference": "21b3f6bd7eeb19d5749b10f56d76f26ced74d4ae"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfTYPO3/tt_address/zipball/21b3f6bd7eeb19d5749b10f56d76f26ced74d4ae",
-                "reference": "21b3f6bd7eeb19d5749b10f56d76f26ced74d4ae",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2",
-                "typo3/cms-core": "^9.5.20 || ^10.4.6 || ^11.3"
-            },
-            "replace": {
-                "typo3-ter/tt-address": "self.version"
-            },
-            "require-dev": {
-                "php-coveralls/php-coveralls": "^2.1"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "tt_address",
-                    "app-dir": ".Build",
-                    "web-dir": ".Build/Web"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FriendsOfTYPO3\\TtAddress\\": "Classes"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "tt_address Development Team",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Displays a list of addresses from an address table on the page.",
-            "homepage": "https://github.com/FriendsOfTYPO3/tt_address",
-            "keywords": [
-                "addresses",
-                "extension",
-                "typo3"
-            ],
-            "support": {
-                "issues": "https://github.com/FriendsOfTYPO3/tt_address/issues",
-                "source": "https://github.com/FriendsOfTYPO3/tt_address/tree/5.3.0"
-            },
-            "time": "2021-07-28T15:26:02+00:00"
         },
         {
             "name": "georgringer/news",
@@ -7974,69 +7796,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
-        },
-        {
-            "name": "websedit/we-cookie-consent",
-            "version": "v2.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/websedit/we_cookie_consent.git",
-                "reference": "8d24c269736d2bac3eaf96f461acf31901d82f2a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/websedit/we_cookie_consent/zipball/8d24c269736d2bac3eaf96f461acf31901d82f2a",
-                "reference": "8d24c269736d2bac3eaf96f461acf31901d82f2a",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "^7.6 || ^8.7 || ^9.5 || ^10.4 || ^11.1"
-            },
-            "replace": {
-                "typo3-ter/we-cookie-consent": "self.version"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "we_cookie_consent"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Websedit\\WeCookieConsent\\": "Classes"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Roman Liedtke",
-                    "role": "Product Manager"
-                },
-                {
-                    "name": "Erwin Steinbinder",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Cookie Consent Panel (Optin) with DSGVO/GDPR compliant use of cookies. Preconfigured modules for Google Analytics, Facebook and other frequently used services. Arbitrary expandability with tracking scripts that generate cookies on your website. Support of Google Tag Manager and easy export of Google Tag Manager. Third-party cookies and scripts are only loaded when active consent is given. Website visitors can edit their privacy settings at any time. Automatic update of cookie information when new cookies/scripts are inserted with secure consent procedure. Cookies can be automatically added to the privacy policy via a plugin. Multilingual and full support for desktop, tablet and mobile. Four standard modes for displaying the content solution. Based on Klaro!.",
-            "homepage": "https://consent.websedit.de/",
-            "keywords": [
-                "Cookiecontrol",
-                "Klaro",
-                "consent",
-                "cookie",
-                "cookieconsent",
-                "dsgvo",
-                "gdpr",
-                "typo3"
-            ],
-            "support": {
-                "issues": "https://github.com/websedit/we_cookie_consent/issues",
-                "source": "https://github.com/websedit/we_cookie_consent/tree/v2.2.1"
-            },
-            "time": "2022-06-24T08:54:28+00:00"
         }
     ],
     "packages-dev": [],
@@ -8048,7 +7807,7 @@
     "platform": [],
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.4.1"
+        "php": "7.4"
     },
     "plugin-api-version": "2.3.0"
 }
