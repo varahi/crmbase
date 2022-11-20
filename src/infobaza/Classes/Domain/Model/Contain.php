@@ -58,6 +58,29 @@ class Contain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $subcontain = null;
 
     /**
+     * __construct
+     */
+    public function __construct()
+    {
+
+        // Do not remove the next line: It would break the functionality
+        $this->initializeObject();
+    }
+
+    /**
+     * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
+     * Do not modify this method!
+     * It will be rewritten on each save in the extension builder
+     * You may modify the constructor of this class instead
+     *
+     * @return void
+     */
+    public function initializeObject()
+    {
+        $this->subcontain = $this->subcontain ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
+
+    /**
      * Returns the bodytext
      *
      * @return string
@@ -118,29 +141,6 @@ class Contain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle(string $title)
     {
         $this->title = $title;
-    }
-
-    /**
-     * __construct
-     */
-    public function __construct()
-    {
-
-        // Do not remove the next line: It would break the functionality
-        $this->initializeObject();
-    }
-
-    /**
-     * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
-     * Do not modify this method!
-     * It will be rewritten on each save in the extension builder
-     * You may modify the constructor of this class instead
-     *
-     * @return void
-     */
-    public function initializeObject()
-    {
-        $this->subcontain = $this->subcontain ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**

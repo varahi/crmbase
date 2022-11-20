@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="conetnt">
+    <f:for each="{chapters}" as="chapter">
+        <f:if condition="{chapter.contain}">
+            <f:for each="{chapter.contain}" as="contain">
+                <div style="display: none" id="text_{chapter.uid}_{contain.uid}" class="text_block">
+                    <f:if condition="{contain.title}">
+                        <h2>{contain.title}</h2>
+                    </f:if>
+                    <f:if condition="{contain.bodytext}">
+                        <f:format.raw>{contain.bodytext}</f:format.raw>
+                    </f:if>
+                    <f:if condition="{contain.file}">
+                        <a href="{contain.file.originalResource.publicUrl}" class="download" download=""><f:translate key="tx_infobaza.download_file" /></a>
+                    </f:if>
+                </div>
+                <f:if condition="{contain.subcontain}">
+                    <f:for each="{contain.subcontain}" as="subcontain">
+                        <div style="display: none" id="text_{chapter.uid}_{contain.uid}_{subcontain.uid}" class="text_block">
+                            <f:if condition="{subcontain.title}">
+                                <h2>{subcontain.title}</h2>
+                            </f:if>
+                            <f:if condition="{subcontain.bodytext}">
+                                <f:format.raw>{subcontain.bodytext}</f:format.raw>
+                            </f:if>
+                            <f:if condition="{subcontain.file}">
+                                <a href="{subcontain.file.originalResource.publicUrl}" class="download" download="">
+                                    <f:translate key="tx_infobaza.download_file" />
+                                </a>
+                            </f:if>
+                        </div>
+                    </f:for>
+                </f:if>
+            </f:for>
+        </f:if>
+    </f:for>
+</div>
+</html>

@@ -1,52 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:infobaza/Resources/Private/Language/locallang.xlf" date="2022-11-20T10:55:03Z" product-name="infobaza">
+	<file source-language="en" target-language="ru" datatype="plaintext" original="EXT:infobaza/Resources/Private/Language/locallang.xlf" date="2022-11-20T10:55:03Z" product-name="infobaza">
 		<header/>
 		<body>
 			<trans-unit id="tx_infobaza_domain_model_chapter" resname="tx_infobaza_domain_model_chapter">
 				<source>Chapter</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_chapter.title" resname="tx_infobaza_domain_model_chapter.title">
 				<source>Title</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_chapter.bodytext" resname="tx_infobaza_domain_model_chapter.bodytext">
 				<source>Bodytext</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_chapter.file" resname="tx_infobaza_domain_model_chapter.file">
 				<source>File</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_chapter.contain" resname="tx_infobaza_domain_model_chapter.contain">
 				<source>Contain</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_contain" resname="tx_infobaza_domain_model_contain">
 				<source>Contain</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_contain.title" resname="tx_infobaza_domain_model_contain.title">
 				<source>Title</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_contain.bodytext" resname="tx_infobaza_domain_model_contain.bodytext">
 				<source>Bodytext</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_contain.file" resname="tx_infobaza_domain_model_contain.file">
 				<source>File</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_contain.chapter" resname="tx_infobaza_domain_model_contain.chapter">
 				<source>Chapter</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_contain.subcontain" resname="tx_infobaza_domain_model_contain.subcontain">
 				<source>Subcontain</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_subcontain" resname="tx_infobaza_domain_model_subcontain">
 				<source>Subcontain</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_subcontain.title" resname="tx_infobaza_domain_model_subcontain.title">
 				<source>Title</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza_domain_model_subcontain.bodytext" resname="tx_infobaza_domain_model_subcontain.bodytext">
 				<source>Bodytext</source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="tx_infobaza.download_file" resname="tx_infobaza.download_file">
 				<source>Download file</source>
+				<target>Скачать файл</target>
 			</trans-unit>
 		</body>
 	</file>

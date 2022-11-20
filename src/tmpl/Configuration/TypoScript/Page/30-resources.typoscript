@@ -15,7 +15,8 @@ page {
     }
 
     includeJSLibs {
-        10_modernizr =EXT:tmpl/Resources/Public/js/modernizr-2.6.2.min.js
+        10_jquery = EXT:tmpl/Resources/Public/js/jquery.min.js
+        20_modernizr =EXT:tmpl/Resources/Public/js/modernizr-2.6.2.min.js
         #20_respond =EXT:tmpl/Resources/Public/js/respond.min.js
         #10_jquery = https://code.jquery.com/jquery-2.2.4.min.js
         #20_slick = EXT:tmpl/Resources/Public/JavaScript/main.js
@@ -23,7 +24,7 @@ page {
     }
 
     includeJSFooterlibs {
-        10_jquery = EXT:tmpl/Resources/Public/js/jquery.min.js
+
         20_jquery_easing = EXT:tmpl/Resources/Public/js/jquery.easing.1.3.js
         30_bootstrap = EXT:tmpl/Resources/Public/js/bootstrap.min.js
         40_carousel = EXT:tmpl/Resources/Public/js/owl.carousel.min.js
