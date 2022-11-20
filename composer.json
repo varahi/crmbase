@@ -34,6 +34,7 @@
 	],
 	"require": {
 		"configloader/configloader": "^10.4",
+		"friendsoftypo3/extension-builder": "^10.0",
 		"georgringer/news": "^9.1",
 		"gridelementsteam/gridelements": "^10.0",
 		"helhum/dotenv-connector": "^3.0",
@@ -43,6 +44,7 @@
 		"lochmueller/sourceopt": "^4.0",
 		"sitegeist/sms-responsive-images": "^2.1",
 		"t3dev/tmpl": "~10.0",
+		"t3dev/infobaza": "~10.4",
 		"typo3/cms-about": "~10.4.0",
 		"typo3/cms-adminpanel": "^10.4.0",
 		"typo3/cms-backend": "~10.4.0",

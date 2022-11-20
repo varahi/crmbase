@@ -68,11 +68,17 @@ return [
         'viewpage' => [
             'packagePath' => 'typo3/sysext/viewpage/',
         ],
+        'extension_builder' => [
+            'packagePath' => 'typo3conf/ext/extension_builder/',
+        ],
         'fancybox' => [
             'packagePath' => 'typo3conf/ext/fancybox/',
         ],
         'gridelements' => [
             'packagePath' => 'typo3conf/ext/gridelements/',
+        ],
+        'infobaza' => [
+            'packagePath' => 'typo3conf/ext/infobaza/',
         ],
         'sms_responsive_images' => [
             'packagePath' => 'typo3conf/ext/sms_responsive_images/',
