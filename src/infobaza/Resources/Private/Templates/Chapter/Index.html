@@ -2,45 +2,39 @@
 <f:layout name="Default" />
 
 <f:section name="content">
+
     <f:flashMessages />
-    <div class="row">
-        <div class="col-md-4">
-            <f:render partial="Chapter/Menu" arguments="{_all}" />
+
+    <f:comment>
+        <f:if condition="show_select_form = 1">
+            <f:render partial="Form/SelectForm" arguments="{_all}" />
+        </f:if>
+    </f:comment>
+
+    <f:if condition="show_auth_form = 1">
+        <f:render partial="Form/AuthForm" arguments="{_all}" />
+    </f:if>
+
+    <f:if condition="{0:show_profile} == {0: NULL}'">
+        <f:then></f:then>
+        <f:else>
+            <f:render partial="Form/Profile" arguments="{_all}" />
+        </f:else>
+    </f:if>
+
+    <f:if condition="show_databaze = 1">
+        <div class="row">
+            <div class="col-md-4">
+                <f:render partial="Chapter/Menu" arguments="{_all}" />
+            </div>
+            <div class="col-md-8">
+                <f:render partial="Chapter/Content" arguments="{_all}" />
+            </div>
         </div>
-        <div class="col-md-8">
-            <f:render partial="Chapter/Content" arguments="{_all}" />
-        </div>
-    </div>
-    <script>
-        function st(i1,i2=0,i3=0)
-        {
-            jQuery('.text_block').css("display","none");
-            jQuery('.block_one').css("display","none");
+        <f:render partial="Form/Script" arguments="{_all}" />
+    </f:if>
 
-            jQuery('.pft').css("display","none");
-            if(i2==0)
-            {
-                jQuery('#k_'+i1).slideToggle(300);
-                jQuery('#text_'+i1).slideToggle(300);
-            }
-            else
+    <f:link.action action="logout" controller="Chapter"><f:translate key="tx_infobaza.logout" /></f:link.action>
 
-            {
-                jQuery('#k_'+i1).slideToggle(300);
-                jQuery('#k_'+i1+"_"+i2).slideToggle(300);
-
-                if(i3==0)
-                {
-                    jQuery('#text_'+i1+"_"+i2).slideToggle(300);
-                }
-                else
-
-                {
-                    jQuery('#text_'+i1+"_"+i2+"_"+i3).slideToggle(300);
-                }
-            }
-        }
-        jQuery(function () {});
-    </script>
 </f:section>
 </html>

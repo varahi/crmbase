@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace T3Dev\Infobaza\Controller;
 
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use T3Dev\Infobaza\Traits\AbstractTrait;
+use T3Dev\Infobaza\Bitrix\AuthClass;
+use T3Dev\Infobaza\Domain\Repository\ChapterRepository;
+
 /**
  * This file is part of the "infobaza" Extension for TYPO3 CMS.
  *
@@ -16,20 +21,21 @@ namespace T3Dev\Infobaza\Controller;
 /**
  * ChapterController
  */
-class ChapterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class ChapterController extends ActionController
 {
+    use AbstractTrait;
 
     /**
      * chapterRepository
      *
-     * @var \T3Dev\Infobaza\Domain\Repository\ChapterRepository
+     * @var ChapterRepository
      */
     protected $chapterRepository = null;
 
     /**
-     * @param \T3Dev\Infobaza\Domain\Repository\ChapterRepository $chapterRepository
+     * @param ChapterRepository $chapterRepository
      */
-    public function injectChapterRepository(\T3Dev\Infobaza\Domain\Repository\ChapterRepository $chapterRepository)
+    public function injectChapterRepository(ChapterRepository $chapterRepository)
     {
         $this->chapterRepository = $chapterRepository;
     }
@@ -41,98 +47,79 @@ class ChapterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function indexAction()
     {
-        $chapters = $this->chapterRepository->findAll();
-        $this->view->assign('chapters', $chapters);
+        // Auth
+        /*if (isset($_GET['company']) && $_GET['company']) {
+            $directory = $_GET['company'];
+        } else {
+            $directory = 'autoconsalt';
+        }*/
+
+        $directory = 'autoconsalt';
+
+        $companiesPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:infobaza/Classes/Bitrix/companies');
+        $iniArr = parse_ini_file($companiesPath. '/'. $directory . '/app.ini');
+
+        $ufCrmKey = $iniArr['ufCrmKey'];
+        $abstractData = new AuthClass($ufCrmKey);
+
+        if (isset($_REQUEST['token_v1'])) {
+            $user = $abstractData->auth($directory);
+        }
+
+        if (isset($user['total']) && $user['total'] == 0) {
+            if ($user == false) {
+                $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'Error');
+                $this->redirectToPage((int)$this->settings['redirectPage']);
+            } else {
+                // ???
+                //$this->addFlashMessage('Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 'Incorect data', AbstractMessage::WARNING);
+            }
+        }
+
+        $randomNumber = $this->getRandomNumber();
+        $this->view->assign('randomNumber', $randomNumber);
+
+        if (isset($_SESSION['auth'])) {
+            // If logged in show profile and database
+            $this->view->assign('show_profile', 1);
+            $this->view->assign('show_databaze', 1);
+            $chapters = $this->chapterRepository->findAll();
+            $this->view->assign('chapters', $chapters);
+        } else {
+            // If not logged in show site content and login form
+            // Showing select company form
+            //$this->view->assign('show_select_form', 1);
+            if (isset($_GET) && !empty($_GET)) {
+                // Showing auth form
+                $this->view->assign('show_auth_form', 1);
+            }
+        }
     }
 
     /**
-     * action list
-     *
-     * @return string|object|null|void
+     * @return string
      */
-    public function listAction()
+    private function getRandomNumber()
     {
-        $chapters = $this->chapterRepository->findAll();
-        $this->view->assign('chapters', $chapters);
+        $rand = rand(111111, 999999).rand(111111, 999999);
+        return $rand;
     }
 
     /**
-     * action show
-     *
-     * @param \T3Dev\Infobaza\Domain\Model\Chapter $chapter
-     * @return string|object|null|void
-     */
-    public function showAction(\T3Dev\Infobaza\Domain\Model\Chapter $chapter)
-    {
-        $this->view->assign('chapter', $chapter);
-    }
-
-    /**
-     * action new
+     * Action logout
      *
      * @return string|object|null|void
      */
-    public function newAction()
+    public function logoutAction()
     {
-    }
-
-    /**
-     * action create
-     *
-     * @param \T3Dev\Infobaza\Domain\Model\Chapter $newChapter
-     * @return string|object|null|void
-     */
-    public function createAction(\T3Dev\Infobaza\Domain\Model\Chapter $newChapter)
-    {
-        $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/p/friendsoftypo3/extension-builder/master/en-us/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->chapterRepository->add($newChapter);
-        $this->redirect('list');
-    }
-
-    /**
-     * action edit
-     *
-     * @param \T3Dev\Infobaza\Domain\Model\Chapter $chapter
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("chapter")
-     * @return string|object|null|void
-     */
-    public function editAction(\T3Dev\Infobaza\Domain\Model\Chapter $chapter)
-    {
-        $this->view->assign('chapter', $chapter);
-    }
-
-    /**
-     * action update
-     *
-     * @param \T3Dev\Infobaza\Domain\Model\Chapter $chapter
-     * @return string|object|null|void
-     */
-    public function updateAction(\T3Dev\Infobaza\Domain\Model\Chapter $chapter)
-    {
-        $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/p/friendsoftypo3/extension-builder/master/en-us/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->chapterRepository->update($chapter);
-        $this->redirect('list');
-    }
-
-    /**
-     * action delete
-     *
-     * @param \T3Dev\Infobaza\Domain\Model\Chapter $chapter
-     * @return string|object|null|void
-     */
-    public function deleteAction(\T3Dev\Infobaza\Domain\Model\Chapter $chapter)
-    {
-        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/p/friendsoftypo3/extension-builder/master/en-us/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->chapterRepository->remove($chapter);
-        $this->redirect('list');
-    }
-
-    /**
-     * action
-     *
-     * @return string|object|null|void
-     */
-    public function Action()
-    {
+        if (session_id()) {
+            if (isset($_GET['logout'])) {
+                session_destroy();
+                //header("Location: http://".$_SERVER['HTTP_HOST'].$redirect);
+                //exit;
+            }
+        }
+        $this->flashMessageService('tx_infobaza.you_logged_out', 'okStatus', 'OK');
+        $this->redirectToPage((int)$this->settings['redirectPage']);
     }
 }

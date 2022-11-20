@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:infobaza/Resources/Private/Language/locallang.xlf" date="2022-11-20T10:55:03Z" product-name="infobaza">
+	<file source-language="en" datatype="plaintext" original="EXT:infobaza/Resources/Private/Language/locallang.xlf" date="2022-11-20T19:55:49Z" product-name="infobaza">
 		<header/>
 		<body>
 			<trans-unit id="tx_infobaza_domain_model_chapter" resname="tx_infobaza_domain_model_chapter">
@@ -47,6 +47,21 @@
 			</trans-unit>
 			<trans-unit id="tx_infobaza.download_file" resname="tx_infobaza.download_file">
 				<source>Download file</source>
+			</trans-unit>
+			<trans-unit id="tx_infobaza.you_logged_out" resname="tx_infobaza.you_logged_out">
+				<source>You logged out</source>
+			</trans-unit>
+			<trans-unit id="okStatus" resname="okStatus">
+				<source>OK</source>
+			</trans-unit>
+			<trans-unit id="tx_infobaza.logout" resname="tx_infobaza.logout">
+				<source>Logout</source>
+			</trans-unit>
+			<trans-unit id="tx_infobaza.incorrect_data" resname="tx_infobaza.incorrect_data">
+				<source>Incorrect data</source>
+			</trans-unit>
+			<trans-unit id="errorStatus" resname="errorStatus">
+				<source>Error</source>
 			</trans-unit>
 		</body>
 	</file>

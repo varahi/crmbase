@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<h4>Пожалуйста выберите компанию, в которой Вы приобрели сертификат</h4>
+<div class="hidden-xs col-sm-6 col-md-4 ">
+    Select form
+</div>
+
+<script>
+    $(function(){
+        // bind change event to select
+        $('#select-id').on('change', function () {
+            var url = $(this).val(); // get selected value
+            if (url) { // require a URL
+                window.location = url; // redirect
+            }
+            return false;
+        });
+    });
+</script>
+</html>

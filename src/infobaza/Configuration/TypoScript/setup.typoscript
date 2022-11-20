@@ -19,6 +19,9 @@ plugin.tx_infobaza_infobaza {
     mvc {
         #callDefaultActionIfActionCantBeResolved = 1
     }
+    settings {
+        redirectPage = 4
+    }
 }
 
 # these classes are only used in auto-generated templates

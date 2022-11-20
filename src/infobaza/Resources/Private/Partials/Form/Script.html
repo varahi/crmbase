@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<script>
+    function st(i1,i2=0,i3=0)
+    {
+        jQuery('.text_block').css("display","none");
+        jQuery('.block_one').css("display","none");
+
+        jQuery('.pft').css("display","none");
+        if(i2==0)
+        {
+            jQuery('#k_'+i1).slideToggle(300);
+            jQuery('#text_'+i1).slideToggle(300);
+        }
+        else
+
+        {
+            jQuery('#k_'+i1).slideToggle(300);
+            jQuery('#k_'+i1+"_"+i2).slideToggle(300);
+
+            if(i3==0)
+            {
+                jQuery('#text_'+i1+"_"+i2).slideToggle(300);
+            }
+            else
+
+            {
+                jQuery('#text_'+i1+"_"+i2+"_"+i3).slideToggle(300);
+            }
+        }
+    }
+    jQuery(function () {});
+</script>
+</html>

@@ -6,13 +6,13 @@ defined('TYPO3_MODE') || die();
         'Infobaza',
         'Infobaza',
         [
-            \T3Dev\Infobaza\Controller\ChapterController::class => 'index, list, show, new, create, edit, update, delete, ',
+            \T3Dev\Infobaza\Controller\ChapterController::class => 'index, logout, ',
             \T3Dev\Infobaza\Controller\ContainController::class => 'list',
             \T3Dev\Infobaza\Controller\SubcontainController::class => 'list'
         ],
         // non-cacheable actions
         [
-            \T3Dev\Infobaza\Controller\ChapterController::class => 'create, update, delete, ',
+            \T3Dev\Infobaza\Controller\ChapterController::class => 'index, logout, ',
             \T3Dev\Infobaza\Controller\ContainController::class => '',
             \T3Dev\Infobaza\Controller\SubcontainController::class => ''
         ]

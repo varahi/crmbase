@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" target-language="ru" datatype="plaintext" original="EXT:infobaza/Resources/Private/Language/locallang.xlf" date="2022-11-20T10:55:03Z" product-name="infobaza">
+	<file source-language="en" target-language="ru" datatype="plaintext" original="EXT:infobaza/Resources/Private/Language/locallang.xlf" date="2022-11-20T19:55:49Z" product-name="infobaza">
 		<header/>
 		<body>
 			<trans-unit id="tx_infobaza_domain_model_chapter" resname="tx_infobaza_domain_model_chapter">
@@ -62,6 +62,26 @@
 			<trans-unit id="tx_infobaza.download_file" resname="tx_infobaza.download_file">
 				<source>Download file</source>
 				<target>Скачать файл</target>
+			</trans-unit>
+			<trans-unit id="tx_infobaza.you_logged_out" resname="tx_infobaza.you_logged_out">
+				<source>You logged out</source>
+				<target>Вы вышли из системы</target>
+			</trans-unit>
+			<trans-unit id="okStatus" resname="okStatus">
+				<source>OK</source>
+				<target>Успешно</target>
+			</trans-unit>
+			<trans-unit id="tx_infobaza.logout" resname="tx_infobaza.logout">
+				<source>Logout</source>
+				<target>Выйти из системы</target>
+			</trans-unit>
+			<trans-unit id="tx_infobaza.incorrect_data" resname="tx_infobaza.incorrect_data">
+				<source>Incorrect data</source>
+				<target>Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации</target>
+			</trans-unit>
+			<trans-unit id="errorStatus" resname="errorStatus">
+				<source>Error</source>
+				<target>Ошибка</target>
 			</trans-unit>
 		</body>
 	</file>
