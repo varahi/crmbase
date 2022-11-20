@@ -107,26 +107,26 @@ class AuthClass extends ActionController
                         if ($name == $result['result']['NAME'] && $lastname == $result['result']['LAST_NAME']) {
                             $_SESSION['auth']=$cert;
                         } else {
-                            $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'Error');
+                            $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
                             $this->redirectToPage((int)$this->settings['redirectPage']);
                         }
                     } else {
-                        $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'Error');
+                        $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
                         $this->redirectToPage((int)$this->settings['redirectPage']);
                     }
                 } else {
-                    $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'Error');
+                    $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
                     $this->redirectToPage((int)$this->settings['redirectPage']);
                 }
             } else {
-                $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'Error');
+                $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
                 $this->redirectToPage((int)$this->settings['redirectPage']);
             }
 
             $_SESSION['auth'] = $cert;
             return $result;
         } else {
-            $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'Error');
+            $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
             $this->redirectToPage((int)$this->settings['redirectPage']);
         }
     }

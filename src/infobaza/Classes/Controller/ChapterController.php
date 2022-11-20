@@ -8,6 +8,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use T3Dev\Infobaza\Traits\AbstractTrait;
 use T3Dev\Infobaza\Bitrix\AuthClass;
 use T3Dev\Infobaza\Domain\Repository\ChapterRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * This file is part of the "infobaza" Extension for TYPO3 CMS.
@@ -56,7 +57,7 @@ class ChapterController extends ActionController
 
         $directory = 'autoconsalt';
 
-        $companiesPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:infobaza/Classes/Bitrix/companies');
+        $companiesPath = GeneralUtility::getFileAbsFileName('EXT:infobaza/Classes/Bitrix/companies');
         $iniArr = parse_ini_file($companiesPath. '/'. $directory . '/app.ini');
 
         $ufCrmKey = $iniArr['ufCrmKey'];
@@ -68,31 +69,26 @@ class ChapterController extends ActionController
 
         if (isset($user['total']) && $user['total'] == 0) {
             if ($user == false) {
-                $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'Error');
+                $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
                 $this->redirectToPage((int)$this->settings['redirectPage']);
-            } else {
-                // ???
-                //$this->addFlashMessage('Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 'Incorect data', AbstractMessage::WARNING);
             }
         }
 
         $randomNumber = $this->getRandomNumber();
         $this->view->assign('randomNumber', $randomNumber);
 
-        if (isset($_SESSION['auth'])) {
+        if (isset($_SESSION['auth']) && $_SESSION['auth'] !=='') {
             // If logged in show profile and database
-            $this->view->assign('show_profile', 1);
-            $this->view->assign('show_databaze', 1);
+            $this->view->assign('show_profile', true);
+            $this->view->assign('show_databaze', true);
+            $this->view->assign('show_auth_form', false);
             $chapters = $this->chapterRepository->findAll();
             $this->view->assign('chapters', $chapters);
+            $this->view->assign('user', $user);
         } else {
-            // If not logged in show site content and login form
-            // Showing select company form
-            //$this->view->assign('show_select_form', 1);
-            if (isset($_GET) && !empty($_GET)) {
-                // Showing auth form
-                $this->view->assign('show_auth_form', 1);
-            }
+            $this->view->assign('show_auth_form', true);
+            $this->view->assign('show_profile', false);
+            $this->view->assign('show_databaze', false);
         }
     }
 
@@ -115,8 +111,6 @@ class ChapterController extends ActionController
         if (session_id()) {
             if (isset($_GET['logout'])) {
                 session_destroy();
-                //header("Location: http://".$_SERVER['HTTP_HOST'].$redirect);
-                //exit;
             }
         }
         $this->flashMessageService('tx_infobaza.you_logged_out', 'okStatus', 'OK');

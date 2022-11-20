@@ -5,24 +5,15 @@
 
     <f:flashMessages />
 
-    <f:comment>
-        <f:if condition="show_select_form = 1">
-            <f:render partial="Form/SelectForm" arguments="{_all}" />
-        </f:if>
-    </f:comment>
-
-    <f:if condition="show_auth_form = 1">
+    <f:if condition="{show_auth_form} == true">
         <f:render partial="Form/AuthForm" arguments="{_all}" />
     </f:if>
 
-    <f:if condition="{0:show_profile} == {0: NULL}'">
-        <f:then></f:then>
-        <f:else>
-            <f:render partial="Form/Profile" arguments="{_all}" />
-        </f:else>
+    <f:if condition="{show_profile} == true">
+        <f:render partial="Form/Profile" arguments="{_all}" />
     </f:if>
 
-    <f:if condition="show_databaze = 1">
+    <f:if condition="{show_databaze} = true">
         <div class="row">
             <div class="col-md-4">
                 <f:render partial="Chapter/Menu" arguments="{_all}" />
@@ -33,8 +24,6 @@
         </div>
         <f:render partial="Form/Script" arguments="{_all}" />
     </f:if>
-
-    <f:link.action action="logout" controller="Chapter"><f:translate key="tx_infobaza.logout" /></f:link.action>
 
 </f:section>
 </html>

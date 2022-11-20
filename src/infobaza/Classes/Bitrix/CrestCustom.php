@@ -2,12 +2,13 @@
 
 namespace T3Dev\Infobaza\Bitrix;
 
-if (isset($_GET['company']) && $_GET['company']) {
+/*if (isset($_GET['company']) && $_GET['company']) {
     $directory = $_GET['company'];
 } else {
     $directory = '';
-}
+}*/
 
+$directory = 'autoconsalt';
 require_once(__DIR__.'/companies/'.$directory.'/settings.php');
 
 /**

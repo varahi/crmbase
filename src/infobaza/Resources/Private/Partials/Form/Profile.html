@@ -1,13 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<h3>Добро пожаловать,
-    <f:comment>
-        <?php echo $user['result']['NAME'];?> <?php echo $user['result']['SECOND_NAME'];?> <?php echo $user['result']['LAST_NAME']; ?>
-    </f:comment>
-</h3>
-<br />
-<div class=" ">
-    <a href="?logout" style="color: #fff" class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-rounded vc_btn3-style-modern vc_btn3-color-juicy-pink" role="button">
-        Выйти из системы
-    </a>
+
+<h3>Добро пожаловать, {user.result.NAME} {user.result.SECOND_NAME} {user.result.LAST_NAME}</h3>
+<div class="btn btn-primary cutom-btn">
+    <f:link.action action="logout" controller="Chapter"><f:translate key="tx_infobaza.logout" /></f:link.action>
 </div>
+<br /><hr />
 </html>

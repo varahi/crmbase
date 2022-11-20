@@ -32,3 +32,19 @@ h5 {
     color: #9a6767;
     text-align: center;
 }
+
+.cutom-btn a {
+    color: #fff;
+}
+.auth-form {
+
+}
+.typo3-messages {
+    width: 90%;
+    margin-left: 20px;
+    font-size: 16px;
+}
+.typo3-messages li {
+    list-style: none;
+    padding: 10px 10px 0 10px !important;
+}
