@@ -1,17 +1,18 @@
 <?php
 
-namespace T3Dev\Infobaza\Bitrix;
+namespace T3Dev\Infobaza\Utility;
 
-use T3Dev\Infobaza\Traits\AbstractTrait;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use T3Dev\Infobaza\Bitrix\CrestCustom;
+use T3Dev\Infobaza\Utility\CrestCustom as Crest;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\FlashMessageService;
 
 /**
  *
  */
 class AuthClass extends ActionController
 {
-    use AbstractTrait;
 
     /**
      * @var string
@@ -56,7 +57,7 @@ class AuthClass extends ActionController
 
         if ($name!=""  && $lastname!="" && $cert!="") {
             if ($name!=""  && $lastname!="" && $cert!="") {
-                $result = CrestCustom::call(
+                $result = Crest::call(
                     'crm.deal.list',
                     $directory,
                     [
@@ -69,19 +70,15 @@ class AuthClass extends ActionController
                         ]
                     ]
                 );
-
-                //\TYPO3\CMS\Core\Utility\DebugUtility::debug($result);
-                //exit();
             }
 
-            $id_contact="";
-            $id_lead="";
-            $phone_lead="";
+            //\TYPO3\CMS\Core\Utility\DebugUtility::debug($result);
+            //exit();
 
             if (isset($result['total']) && $result['total'] !==0) {
                 $id_lead = $result['result'][0]['ID'];
 
-                $result = CrestCustom::call(
+                $result = Crest::call(
                     'crm.deal.contact.items.get',
                     $directory,
                     [
@@ -93,7 +90,7 @@ class AuthClass extends ActionController
                 if (isset($result['result'][0])) {
                     $id_contact=$result['result'][0]['CONTACT_ID'];
 
-                    $result = CrestCustom::call(
+                    $result = Crest::call(
                         'crm.contact.get',
                         $directory,
                         [
@@ -102,32 +99,60 @@ class AuthClass extends ActionController
                         ],
                     );
 
+                    //$message = 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации';
+
                     if (isset($result['result'])) {
                         $phone_lead = $result['result']['PHONE'][0]['VALUE'];
                         if ($name == $result['result']['NAME'] && $lastname == $result['result']['LAST_NAME']) {
                             $_SESSION['auth']=$cert;
                         } else {
-                            $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
-                            $this->redirectToPage((int)$this->settings['redirectPage']);
+                            //$this->redirectTo('baza-dannykh', $message, 403, 'Error');
                         }
                     } else {
-                        $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
-                        $this->redirectToPage((int)$this->settings['redirectPage']);
+                        //$this->redirectTo('baza-dannykh', $message, 403, 'Error');
                     }
                 } else {
-                    $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
-                    $this->redirectToPage((int)$this->settings['redirectPage']);
+                    //$this->redirectTo('baza-dannykh', $message, 403, 'Error');
                 }
             } else {
-                $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
-                $this->redirectToPage((int)$this->settings['redirectPage']);
+                //$this->redirectTo('baza-dannykh', $message, 403, 'Error');
             }
 
             $_SESSION['auth'] = $cert;
             return $result;
         } else {
-            $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
-            $this->redirectToPage((int)$this->settings['redirectPage']);
+            //$this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
+            //$this->redirectTo('baza-dannykh', $message, 403, 'Error');
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getDomain()
+    {
+        if (isset($_SERVER['HTTPS']) &&
+            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+            return 'https://'.$_SERVER['HTTP_HOST'];
+        } else {
+            return 'http://'.$_SERVER['HTTP_HOST'];
+        }
+    }
+
+    /**
+     * @param $page
+     * @param $message
+     * @param $statusCode
+     * @return void
+     */
+    public function redirectTo($page, $message, $statusCode, $level)
+    {
+        session_start();
+        $_SESSION['message'] = $message;
+        $_SESSION['level'] = $level;
+        header('Location:' . $this->getDomain() .'/'. $page, $statusCode);
+        exit;
     }
 }

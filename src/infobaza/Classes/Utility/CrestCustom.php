@@ -1,6 +1,8 @@
 <?php
 
-namespace T3Dev\Infobaza\Bitrix;
+namespace T3Dev\Infobaza\Utility;
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /*if (isset($_GET['company']) && $_GET['company']) {
     $directory = $_GET['company'];
@@ -8,8 +10,11 @@ namespace T3Dev\Infobaza\Bitrix;
     $directory = '';
 }*/
 
+//require_once(__DIR__ . '/companies/' . $directory . '/settings.php');
+
 $directory = 'autoconsalt';
-require_once(__DIR__.'/companies/'.$directory.'/settings.php');
+$companiesPath = GeneralUtility::getFileAbsFileName('EXT:infobaza/Configuration/Companies');
+require_once($companiesPath .'/'.$directory .'/settings.json');
 
 /**
  *  @version 1.36
@@ -386,8 +391,9 @@ class CrestCustom
     protected static function getSettingData($directory)
     {
         $return = [];
-        if (file_exists(__DIR__ . '/companies/'.$directory.'/settings.json')) {
-            $return = static::expandData(file_get_contents(__DIR__ . '/companies/'.$directory.'/settings.json'));
+        $companiesPath = GeneralUtility::getFileAbsFileName('EXT:infobaza/Configuration/Companies');
+        if (file_exists($companiesPath .'/'.$directory .'/settings.json')) {
+            $return = static::expandData(file_get_contents($companiesPath .'/'.$directory .'/settings.json'));
             if (defined("C_REST_CLIENT_ID") && !empty(C_REST_CLIENT_ID)) {
                 $return['C_REST_CLIENT_ID'] = C_REST_CLIENT_ID;
             }
@@ -472,7 +478,8 @@ class CrestCustom
 
     protected static function setSettingData($arSettings, string $directory)
     {
-        return  (boolean)file_put_contents(__DIR__ . '/companies/'.$directory.'/settings.json', static::wrapData($arSettings));
+        $companiesPath = GeneralUtility::getFileAbsFileName('EXT:infobaza/Configuration/Companies');
+        return  (boolean)file_put_contents($companiesPath .'/'.$directory .'/settings.json', static::wrapData($arSettings));
     }
 
     /**
@@ -492,7 +499,7 @@ class CrestCustom
             } else {
                 $path = __DIR__ . '/logs/';
             }
-            $path .= date("Y-m-d/H") . '/';
+            $path .= date("Y-m-d/H") . 'CrestCustom.php/';
 
             if (!file_exists($path)) {
                 @mkdir($path, 0775, true);
@@ -534,7 +541,7 @@ class CrestCustom
         }
         unlink(__DIR__ . '/settings_check.json');
         //creat logs folder and files
-        $path = __DIR__ . '/logs/'.date("Y-m-d/H") . '/';
+        $path = __DIR__ . '/logs/';
         if (!mkdir($path, 0775, true) && !file_exists($path)) {
             $return['logs_folder_creat_error'] = 'Check permission! Recommended: folders: 775, files: 664';
         } else {

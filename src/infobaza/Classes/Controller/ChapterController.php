@@ -6,7 +6,7 @@ namespace T3Dev\Infobaza\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use T3Dev\Infobaza\Traits\AbstractTrait;
-use T3Dev\Infobaza\Bitrix\AuthClass;
+use T3Dev\Infobaza\Utility\AuthClass;
 use T3Dev\Infobaza\Domain\Repository\ChapterRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -56,16 +56,23 @@ class ChapterController extends ActionController
         }*/
 
         $directory = 'autoconsalt';
-
-        $companiesPath = GeneralUtility::getFileAbsFileName('EXT:infobaza/Classes/Bitrix/companies');
+        $companiesPath = GeneralUtility::getFileAbsFileName('EXT:infobaza/Configuration/Companies');
         $iniArr = parse_ini_file($companiesPath. '/'. $directory . '/app.ini');
-
         $ufCrmKey = $iniArr['ufCrmKey'];
         $abstractData = new AuthClass($ufCrmKey);
+        //$abstractData = GeneralUtility::makeInstance(AuthClass::class);
 
         if (isset($_REQUEST['token_v1'])) {
             $user = $abstractData->auth($directory);
         }
+
+        if (empty($user) && !empty($_REQUEST)) {
+            $this->flashMessageService('tx_infobaza.incorrect_data', 'errorStatus', 'ERROR');
+            $this->redirectToPage((int)$this->settings['redirectPage']);
+        }
+
+        //\TYPO3\CMS\Core\Utility\DebugUtility::debug($_REQUEST);
+        //exit();
 
         if (isset($user['total']) && $user['total'] == 0) {
             if ($user == false) {
