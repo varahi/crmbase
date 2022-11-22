@@ -1,32 +1,16 @@
 lib.logo >
 lib.logo = COA
 lib.logo {
-    wrap = <div id="fh5co-logo">|</div>
+    wrap = <div class="logo">|</div>
     10 = IMAGE
     10 {
-        file = EXT:tmpl/Resources/Public/images/logo-colored.png
+        #file = EXT:tmpl/Resources/Public/images/logo-colored.png
+        file = EXT:tmpl/Resources/Public/images/logo.svg
         altText = {$config.header.logoTitle}
         titleText = {$config.header.logoTitle}
         #file.width = 100
         #file.height = 100
-        params = class="logo"
-        stdWrap.typolink {
-            wrap = <div class="logo">|</div>
-            parameter =  {$config.navigation.rootPid}
-            ATagBeforeWrap = 1
-        }
-    }
-}
-
-
-/*
-lib.logo >
-lib.logo = COA
-lib.logo {
-    wrap = <div id="fh5co-logo">|</div>
-    10 = TEXT
-    10 {
-        value =
+        #params = class="logo"
         stdWrap.typolink {
             wrap = |
             parameter =  {$config.navigation.rootPid}
@@ -34,4 +18,3 @@ lib.logo {
         }
     }
 }
-*/

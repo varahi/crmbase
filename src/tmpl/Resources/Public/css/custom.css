@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 .main {
     width: 85%;
     float: right;
@@ -11,6 +13,15 @@
     border-bottom: 1px solid #f0f0f0;
 }
 
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 30px;
+}
 
 .page {
     width: 100%;
@@ -19,17 +30,51 @@
 
     padding: 20px;
 }
+#fh5co-aside {
+    background: #61a3b4;
+    color: #fff;
+}
+#fh5co-aside p,
+#fh5co-aside a {
+    color: #fff;
+}
+
+.btn-primary {
+    background: #61a3b4;
+    color: #fff;
+    border: 2px solid #61a3b4;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background: #8daeb7 !important;
+    border-color: #8daeb7 !important;
+}
+
+#fh5co-aside #fh5co-main-menu ul li.fh5co-active a,
+#fh5co-aside #fh5co-main-menu ul li a:hover {
+    color: #fff;
+}
+small, .small {
+    font-size: 90%;
+    font-weight: 400;
+}
 
 h1 {
-    color: #7ac143;
-    font-size: 46px;
+    color: #61a3b4;
+    font-size: 42px;
     font-weight: normal;
 }
 h2 {
-    color: #a86060;
+    font-size: 34px;
+    color: #6c6565;
+    font-weight: normal;
 }
-h5 {
-    color: #9a6767;
+h3, h4 {
+    font-size: 28px;
+    color: #6c6565;
+}
+h5.card-header {
+    color: #d47d1a;
     text-align: center;
 }
 

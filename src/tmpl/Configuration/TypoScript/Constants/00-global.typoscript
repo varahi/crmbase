@@ -9,13 +9,13 @@ config {
     # cat=config : advanced/100/110; type=string; label=Debug
     debug = 0
 
-    language = fr
-    locale = fr_FR.UTF-8
+    language = ru
+    locale = ru_RU.UTF-8
     sys_language_uid = 0
-    locale_all = fr_FR
+    locale_all = ru_RU
 
     header {
-        logoTitle = Pimet Config
+        logoTitle = Справочник Автовладельца
         slogan =
         phone =
         email =
