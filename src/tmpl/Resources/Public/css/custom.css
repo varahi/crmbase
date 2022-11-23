@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+body {
+    font-size:  17px;
+    background: rgb(208,220,223);
+    background: linear-gradient(90deg, rgba(208,220,223,1) 0%, rgba(255,255,255,1) 25%, rgba(239,248,250,1) 100%);
+}
+
 .main {
     width: 85%;
     float: right;
@@ -61,16 +67,16 @@ small, .small {
 
 h1 {
     color: #61a3b4;
-    font-size: 42px;
+    font-size: 32px;
     font-weight: normal;
 }
 h2 {
-    font-size: 34px;
+    font-size: 24px;
     color: #6c6565;
     font-weight: normal;
 }
 h3, h4 {
-    font-size: 28px;
+    font-size: 22px;
     color: #6c6565;
 }
 h5.card-header {
@@ -106,6 +112,53 @@ a:hover, a:hover, a:active, a:focus {
         color: #fff;
     }
 }
+
+#fh5co-aside {
+    overflow-y: hidden;
+}
+
+.ce-gallery .ce-column img {
+    border-radius: 10px;
+}
+
+.card {
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    border-radius: 10px;
+}
+.card:hover {
+    transform: scale(1.03);
+    transition-property: transform;
+    transition-duration: 500ms;
+
+}
+
+
+.auth-form {
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tx-infobaza ol {
+    font-size: 16px;
+
+}
+.tx-infobaza li {
+    line-height: 26px;
+}
+.tx-infobaza li a {
+    color: rgba(0,0,0,0.5);
+}
+
 
 /*
 #fh5co-aside {
