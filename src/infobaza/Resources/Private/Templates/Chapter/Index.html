@@ -2,18 +2,12 @@
 <f:layout name="Default" />
 
 <f:section name="content">
-
-    <f:flashMessages />
-
-    <f:if condition="{show_auth_form} == true">
+    <f:if condition="{showAuthForm} = true">
         <f:render partial="Form/AuthForm" arguments="{_all}" />
     </f:if>
 
-    <f:if condition="{show_profile} == true">
+    <f:if condition="{showDatabase} = true">
         <f:render partial="Form/Profile" arguments="{_all}" />
-    </f:if>
-
-    <f:if condition="{show_databaze} = true">
         <div class="row">
             <div class="col-md-4">
                 <f:render partial="Chapter/Menu" arguments="{_all}" />
@@ -24,6 +18,5 @@
         </div>
         <f:render partial="Form/Script" arguments="{_all}" />
     </f:if>
-
 </f:section>
 </html>

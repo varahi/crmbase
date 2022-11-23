@@ -57,6 +57,22 @@ routeEnhancers:
         type: StaticRangeMapper
         start: '1'
         end: '100'
+
+  InfobazaPlugin:
+    type: Extbase
+    extension: Infobaza
+    plugin: Infobaza
+    routes:
+      -
+        routePath: '/logged-in'
+        _controller: 'Chapter::index'
+    defaultController: 'Chapter::index'
+    defaults:
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '100'
+
 routes:
   -
     route: sitemap.xml

@@ -77,6 +77,12 @@ h5.card-header {
     color: #d47d1a;
     text-align: center;
 }
+a, a:hover, a:hover, a:active, a:focus {
+    color: #61a3b4;
+}
+a:hover, a:hover, a:active, a:focus {
+    text-decoration: underline;
+}
 
 .cutom-btn a {
     color: #fff;
@@ -93,3 +99,8 @@ h5.card-header {
     list-style: none;
     padding: 10px 10px 0 10px !important;
 }
+
+/*
+#fh5co-aside {
+    display: none !important;
+}*/

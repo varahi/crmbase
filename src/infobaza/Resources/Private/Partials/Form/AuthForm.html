@@ -1,6 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <div class="container">
-    <form action="" method="POST" class="auth-form">
+    <f:form action="index" name="auth" class="auth-form">
         <div class="form-group">
             <label for="last-name">Фамилия *</label>
             <input class="form-control" type="text" name="lastname_v1" value="" size="40" id="last-name" required="">
@@ -15,10 +15,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Получить доступ</button>
         <input type="hidden" name="token_v1" value="start{randomNumber}">
-
-        <f:comment>
-            <input type="hidden" name="token_v1" value="start{randomNumber}">
-        </f:comment>
-    </form>
+    </f:form>
 </div>
 </html>
