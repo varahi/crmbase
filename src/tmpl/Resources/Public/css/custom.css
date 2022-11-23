@@ -100,7 +100,22 @@ a:hover, a:hover, a:active, a:focus {
     padding: 10px 10px 0 10px !important;
 }
 
+@media screen and (max-width: 768px) {
+    #fh5co-aside {
+        background: #61a3b4 !important;
+        color: #fff;
+    }
+}
+
 /*
 #fh5co-aside {
     display: none !important;
+}*/
+
+/*
+@media screen and (max-width: 768px)
+    #fh5co-aside {
+        background: #61a3b4;
+        color: #fff;
+    }
 }*/

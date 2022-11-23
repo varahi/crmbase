@@ -56,7 +56,7 @@ class ChapterController extends ActionController
     public function indexAction()
     {
         $abstractData = new AuthClass($this->ufCrmKey);
-        $directory = 'autoconsalt';
+        $directory = 'save_drive';
         if (isset($_REQUEST['token_v1'])) {
             $user = $abstractData->auth($directory);
         }
