@@ -166,6 +166,18 @@ a:hover, a:hover, a:active, a:focus {
     margin-bottom: 30px;
 }
 
+.header-title {
+    margin-bottom: 20px;
+}
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-logo h3 {
+    color: #61a3b4;
+}
+
 /*
 #fh5co-aside {
     display: none !important;

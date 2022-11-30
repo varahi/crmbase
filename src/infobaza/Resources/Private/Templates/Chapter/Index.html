@@ -3,6 +3,12 @@
 
 <f:section name="content">
     <f:if condition="{showAuthForm} = true">
+        <div class="header-title">
+            <div class="header-logo">
+                <f:image src="EXT:tmpl/Resources/Public/images/logo2.png" />
+                <h3>Справочник Автовладельца</h3>
+            </div>
+        </div>
         <f:if condition="{error} = true">
             <div class="alert alert-danger" role="alert">
                 Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации
