@@ -3,6 +3,11 @@
 
 <f:section name="content">
     <f:if condition="{showAuthForm} = true">
+        <f:if condition="{error} = true">
+            <div class="alert alert-danger" role="alert">
+                Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации
+            </div>
+        </f:if>
         <f:render partial="Form/AuthForm" arguments="{_all}" />
     </f:if>
 

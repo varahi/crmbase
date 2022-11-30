@@ -159,6 +159,12 @@ a:hover, a:hover, a:active, a:focus {
     color: rgba(0,0,0,0.5);
 }
 
+.alert {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
 
 /*
 #fh5co-aside {

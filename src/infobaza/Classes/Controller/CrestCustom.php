@@ -8,7 +8,7 @@
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-$directory = 'save_drive';
+$directory = 'autoconsalt';
 /*$companiesPath = GeneralUtility::getFileAbsFileName('EXT:infobaza/Configuration/Companies');
 require_once($companiesPath. '/'. $directory . '/settings.php');*/
 

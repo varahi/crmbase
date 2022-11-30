@@ -33,8 +33,9 @@ class AuthClass
      * @param $directory
      * @return array|mixed|string|string[]|void
      */
-    public function auth($directory)
+    public function auth()
     {
+        //$directory = 'autoconsalt';
         if (!session_id()) {
             session_start();
         }
@@ -58,9 +59,8 @@ class AuthClass
 
         if ($name!=""  && $lastname!="" && $cert!="") {
             if ($name!=""  && $lastname!="" && $cert!="") {
-                $result = CrestCustom::call(
+                $result = Crest::call(
                     'crm.deal.list',
-                    $directory,
                     [
                         'filter' => [
                             $this->ufCrmKey => $cert
@@ -78,9 +78,8 @@ class AuthClass
             if (isset($result['total']) && $result['total'] !==0) {
                 $id_lead = $result['result'][0]['ID'];
 
-                $result = CrestCustom::call(
+                $result = Crest::call(
                     'crm.deal.contact.items.get',
-                    $directory,
                     [
                         'id' => $id_lead
 
@@ -89,9 +88,8 @@ class AuthClass
                 if (isset($result['result'][0])) {
                     $id_contact=$result['result'][0]['CONTACT_ID'];
 
-                    $result = CrestCustom::call(
+                    $result = Crest::call(
                         'crm.contact.get',
-                        $directory,
                         [
                             'id' => $id_contact
 
@@ -104,22 +102,22 @@ class AuthClass
                         if ($name == $result['result']['NAME'] && $lastname == $result['result']['LAST_NAME']) {
                             $_SESSION['auth']=$cert;
                         } else {
-                            //$this->redirect('knowledgebase/', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
+                            $this->redirect('baza-dannykh/?error=1', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
                         }
                     } else {
-                        //$this->redirect('knowledgebase/', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
+                        $this->redirect('baza-dannykh/?error=1', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
                     }
                 } else {
-                    //$this->redirect('knowledgebase/', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
+                    $this->redirect('baza-dannykh/?error=1', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
                 }
             } else {
-                //$this->redirect('knowledgebase/', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
+                $this->redirect('baza-dannykh/?error=1', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
             }
 
             $_SESSION['auth'] = $cert;
             return $result;
         } else {
-            //$this->redirect('knowledgebase/', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
+            $this->redirect('baza-dannykh/?error=1', 'Предоставленные данные не корректны! Свяжитесь с представителем Вашего сертификата для получения технической консультации', 403, 'Error');
         }
     }
 

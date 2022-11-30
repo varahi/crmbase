@@ -9,6 +9,7 @@ use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use T3Dev\Infobaza\Domain\Repository\ChapterRepository;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * This file is part of the "infobaza" Extension for TYPO3 CMS.
@@ -20,7 +21,8 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 
 require_once(__DIR__ . '/AuthClass.php');
-require_once(__DIR__ . '/CrestCustom.php');
+require_once(__DIR__ . '/CRest.php');
+//require_once(__DIR__ . '/CrestCustom.php');
 
 /**
  * ChapterController
@@ -56,9 +58,9 @@ class ChapterController extends ActionController
     public function indexAction()
     {
         $abstractData = new AuthClass($this->ufCrmKey);
-        $directory = 'save_drive';
+        //$directory = 'save_drive';
         if (isset($_REQUEST['token_v1'])) {
-            $user = $abstractData->auth($directory);
+            $user = $abstractData->auth();
         }
 
         if (isset($user['total']) && $user['total'] == 0) {
@@ -67,15 +69,17 @@ class ChapterController extends ActionController
                 $this->redirectToPage((int)$this->settings['redirectPage']);
             }
         }
-
-        //\TYPO3\CMS\Core\Utility\DebugUtility::debug($_SESSION);
+        $error = GeneralUtility::_GET('error');
+        //\TYPO3\CMS\Core\Utility\DebugUtility::debug($error);
 
         if (isset($_SESSION['auth'])) {
             $chapters = $this->chapterRepository->findAll();
             $this->view->assign('chapters', $chapters);
             $this->view->assign('user', $user);
+            $this->view->assign('error', $error);
             $this->view->assign('showDatabase', true);
         } else {
+            $this->view->assign('error', $error);
             $this->view->assign('showAuthForm', true);
         }
     }
