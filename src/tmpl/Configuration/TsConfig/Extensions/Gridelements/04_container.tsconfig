@@ -7,7 +7,7 @@ tx_gridelements.setup {
         title = Grid element - container with class
         description = Container with additional class
         flexformDS = FILE:EXT:tmpl/Configuration/FlexForms/04_grid_container.xml
-        icon = EXT:tmpl/Resources/Public/Icons/icon.gif
+        icon = EXT:tmpl/Resources/Public/images/icon.gif
         topLevelLayout = 1
         config {
             colCount = 1

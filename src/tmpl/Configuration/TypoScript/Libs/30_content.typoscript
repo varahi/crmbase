@@ -1,6 +1,5 @@
 BODYTEXT.parseFunc = < lib.parseFunc_RTE
 
-
 lib.dynamicContent = COA
 lib.dynamicContent {
     5 = LOAD_REGISTER
