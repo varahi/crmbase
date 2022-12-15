@@ -29,12 +29,12 @@ body {
     margin-bottom: 30px;
 }
 
-.page {
+/*.page {
     width: 100%;
     overflow: hidden;
     position: relative;
     padding: 20px;
-}
+}*/
 #fh5co-aside {
 /*    background: #61a3b4;*/
     background: #7ac143;
@@ -45,10 +45,7 @@ body {
     color: #fff;
 }
 
-.fh5co-testimonial {
-    margin: -20px;
-    margin-bottom: 20px;
-}
+
 
 /*.btn-primary {
     background: #61a3b4;
@@ -66,12 +63,44 @@ body {
     color: #fff;
 }
 
+body{
+    position: relative;
+}
+
+#overlay,
+#overlay2 {
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.fh5co-testimonial {
+    position: unset;
+    margin: -20px;
+    margin-bottom: 20px;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/fxslide1.webp');
+}
+
 .fh5co-counters {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-/*    background-image: url('../images/hero.jpg');*/
     background-image: url('../images/fxslide1.webp');
+    color: #fff;
+    margin: 0 -20px;
+    padding: 100px;
+}
+
+.info-block,
+.offer-block {
+    position: relative;
+    z-index: 100;
+    background: #fff;
 }
 
 .green {
@@ -84,11 +113,6 @@ body {
 }
 .fh5co-feature .fh5co-text h3 {
     margin-top: 20px;
-}
-
-.fh5co-counters {
-    margin: 0 -20px;
-    padding: 40px;
 }
 .info-block {
     padding: 100px 0;
